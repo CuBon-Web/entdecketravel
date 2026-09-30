@@ -1,0 +1,52 @@
+[25-Apr-2026 03:37:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/database.php on line 18
+[25-Apr-2026 03:37:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/mail.php on line 16
+[25-Apr-2026 03:37:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/services.php on line 18
+[07-May-2026 05:07:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/database.php on line 18
+[07-May-2026 05:07:35 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/app.php on line 16
+[09-May-2026 11:02:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/database.php on line 18
+[09-May-2026 11:02:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/app.php on line 16
+[10-May-2026 06:28:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/filesystems.php on line 16
+[10-May-2026 06:28:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/mail.php on line 16
+[10-May-2026 06:28:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/queue.php on line 16
+[10-May-2026 06:28:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/services.php on line 18
+[12-May-2026 10:03:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/database.php on line 18
+[12-May-2026 10:03:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/vietfhrz/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/vietfhrz/public_html/config/app.php on line 16
