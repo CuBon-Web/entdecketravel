@@ -22,6 +22,7 @@
             </div>
           </div>
       </div>
+      <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
       <div class="form-group">
         <vs-input
           class="w-100"
@@ -59,6 +60,7 @@
 <script>
 import { mapActions } from "vuex";
 import TinyMce from "../../../_common/tinymce";
+import SeoFields from "../../../_common/seo_fields";
 export default {
   data() {
     return {
@@ -77,13 +79,16 @@ export default {
         content: "",
         avatar: "",
         imagehome:"",
-        status: 1
+        status: 1,
+        seo_title: "",
+        meta_description: "",
       },
       img:'',
     };
   },
   components: {
     TinyMce,
+    SeoFields,
   },
   methods: {
     ...mapActions(["saveCategory", "loadings","listLanguage"]),

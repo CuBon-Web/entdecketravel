@@ -30,8 +30,16 @@ class BlogTypeCate extends Model
                 // if(file_exists( public_path().$file ) ){
                 //     \File::delete($filename);
                 // }
+                $oldSlug = $query->slug;
                 $query->name = json_encode($request->name);
                 $query->slug = to_slug($request->name[0]['content']);
+                if ($oldSlug && $oldSlug !== $query->slug) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::blogTypePath($oldSlug),
+                        \App\Services\UrlRedirectService::blogTypePath($query->slug)
+                    );
+                    \App\models\blog\Blog::where('type_cate', $oldSlug)->update(['type_cate' => $query->slug]);
+                }
                 $query->status = $request->status;
                 $query->avatar = $request->avatar;
                 $query->category_slug = $request->category_slug;

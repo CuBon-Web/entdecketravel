@@ -41,7 +41,7 @@ class HomeController extends Controller
         $data['gioithieu'] = PageContent::where(['slug'=>'gioi-thieu','language'=>'vi'])->first(['id','title','content','image']);
         $data['homePro'] = Product::where(['status'=>1,'discountStatus'=>1])
             ->orderBy('id','DESC')
-            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','origin','thickness','hang_muc')
+            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','origin','thickness','hang_muc','tags')
             ->limit(8)->get();
         return view('home',$data);
     }

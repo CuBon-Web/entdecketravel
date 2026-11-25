@@ -4751,6 +4751,71 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/_common/seo_fields.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/_common/seo_fields.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    title: {
+      "default": ""
+    },
+    description: {
+      "default": ""
+    }
+  },
+  computed: {
+    titleValue: {
+      get: function get() {
+        return this.title || "";
+      },
+      set: function set(value) {
+        this.$emit("update:title", value);
+      }
+    },
+    descriptionValue: {
+      get: function get() {
+        return this.description || "";
+      },
+      set: function set(value) {
+        this.$emit("update:description", value);
+      }
+    },
+    titleLength: function titleLength() {
+      return this.titleValue.length;
+    },
+    descriptionLength: function descriptionLength() {
+      return this.descriptionValue.length;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/_common/tinymce.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/_common/tinymce.vue?vue&type=script&lang=js& ***!
@@ -8203,6 +8268,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -8393,6 +8459,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8424,6 +8492,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }],
         cate_product: 0,
         status: 1,
+        seo_title: "",
+        meta_description: "",
         image: "",
         author: "",
         category: "",
@@ -8434,7 +8504,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   components: {
-    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"]
+    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: {},
   watch: {},
@@ -8569,6 +8640,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -8646,6 +8718,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -8663,11 +8737,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }],
         path: "",
         avatar: "",
-        status: ""
+        status: "",
+        seo_title: "",
+        meta_description: ""
       },
       lang: [],
       img: ""
     };
+  },
+  components: {
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getInfoCateBlog", "saveCategoryBlog", "listLanguage", "loadings"])), {}, {
     showSettingLangExist: function showSettingLangExist(value) {
@@ -8937,8 +9016,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
-/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
+/* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_3__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -9102,6 +9182,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 
@@ -9139,13 +9221,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         home_status: 0,
         type_cate: "",
         type_news: "",
-        cate_product: 0
+        cate_product: 0,
+        seo_title: "",
+        meta_description: ""
       },
       lang: []
     };
   },
   components: {
-    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"]
+    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   computed: {},
   watch: {},
@@ -9900,6 +9985,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -9985,6 +10071,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -10001,7 +10089,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         content: "",
         avatar: "",
         imagehome: "",
-        status: 1
+        status: 1,
+        seo_title: "",
+        meta_description: ""
       },
       lang: [],
       img: "",
@@ -10009,7 +10099,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   components: {
-    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"]
+    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["saveCategory", "listLanguage", "loadings"])), {}, {
     nameImage: function nameImage(event) {
@@ -10088,6 +10179,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -10175,6 +10267,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -10192,7 +10286,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         content: "",
         avatar: "",
         imagehome: "",
-        status: ""
+        status: "",
+        seo_title: "",
+        meta_description: ""
       },
       lang: [],
       img: "",
@@ -10200,7 +10296,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   components: {
-    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"]
+    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["getInfoCate", "saveCategory", "listLanguage", "loadings"])), {}, {
     nameImage: function nameImage(event) {
@@ -14239,6 +14336,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -14300,6 +14398,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -14316,11 +14416,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }],
         path: "",
         avatar: "",
-        status: ""
+        status: "",
+        seo_title: "",
+        meta_description: ""
       },
       img: '',
       lang: []
     };
+  },
+  components: {
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(["saveCategoryBlog", "loadings", "listLanguage"])), {}, {
     showSettingLangExist: function showSettingLangExist(value) {
@@ -14572,6 +14677,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -14636,6 +14742,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -14654,13 +14762,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         content: "",
         avatar: "",
         imagehome: "",
-        status: 1
+        status: 1,
+        seo_title: "",
+        meta_description: ""
       },
       img: ''
     };
   },
   components: {
-    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"]
+    TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   methods: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(["saveCategory", "loadings", "listLanguage"])), {}, {
     handleSubmit: function handleSubmit() {
@@ -16787,6 +16898,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_input_tag__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_input_tag__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var vue_native_color_picker__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-native-color-picker */ "./node_modules/vue-native-color-picker/dist/v-input-colorpicker.umd.js");
 /* harmony import */ var vue_native_color_picker__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(vue_native_color_picker__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -17102,6 +17214,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
 
@@ -17146,6 +17260,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lang: "",
         variant: [],
         name: "",
+        seo_title: "",
+        meta_description: "",
         size: [{
           title: "",
           detail: ""
@@ -17219,7 +17335,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
     ImageMulti: _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__["default"],
     InputTag: vue_input_tag__WEBPACK_IMPORTED_MODULE_4___default.a,
-    "v-input-colorpicker": vue_native_color_picker__WEBPACK_IMPORTED_MODULE_5___default.a
+    "v-input-colorpicker": vue_native_color_picker__WEBPACK_IMPORTED_MODULE_5___default.a,
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   computed: {
     entryChecks: function entryChecks() {
@@ -17665,6 +17782,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
 /* harmony import */ var _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_common/upload_image_multi */ "./resources/js/components/_common/upload_image_multi.vue");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -18042,6 +18160,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+
 
 
  // import InputTag from 'vue-input-tag'
@@ -18070,6 +18190,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         lang: "",
         variant: [],
         name: "",
+        seo_title: "",
+        meta_description: "",
         size: [{
           title: "",
           detail: ""
@@ -18113,7 +18235,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   components: {
     TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_1__["default"],
-    ImageMulti: _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ImageMulti: _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   computed: {},
   watch: {},
@@ -26985,6 +27108,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../_common/upload_image_multi */ "./resources/js/components/_common/upload_image_multi.vue");
 /* harmony import */ var _common_tinymce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../_common/tinymce */ "./resources/js/components/_common/tinymce.vue");
+/* harmony import */ var _common_seo_fields__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_common/seo_fields */ "./resources/js/components/_common/seo_fields.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -27200,6 +27324,28 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -27214,6 +27360,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       objData: {
         webname: "",
         company: "",
+        seo_title: "",
+        meta_description: "",
         address1: "",
         address2: "",
         phone1: "",
@@ -27222,6 +27370,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         email: "",
         facebook: "",
         google: "",
+        ga4_id: "",
+        gtm_id: "",
         GA: "",
         fbPixel: "",
         iframe_map: "",
@@ -27246,7 +27396,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   components: {
     TinyMce: _common_tinymce__WEBPACK_IMPORTED_MODULE_3__["default"],
-    ImageMulti: _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__["default"]
+    ImageMulti: _common_upload_image_multi__WEBPACK_IMPORTED_MODULE_2__["default"],
+    SeoFields: _common_seo_fields__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   computed: {},
   watch: {},
@@ -313924,6 +314075,99 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/_common/seo_fields.vue?vue&type=template&id=e49beaea&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/_common/seo_fields.vue?vue&type=template&id=e49beaea& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", [_vm._v("SEO title")]),
+        _vm._v(" "),
+        _c("vs-input", {
+          staticClass: "w-100",
+          attrs: {
+            placeholder: "Tiêu đề trên Google. Sửa ô này không đổi đường link."
+          },
+          model: {
+            value: _vm.titleValue,
+            callback: function($$v) {
+              _vm.titleValue = $$v
+            },
+            expression: "titleValue"
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "small",
+          { style: { color: _vm.titleLength > 60 ? "#c0392b" : "#6b7280" } },
+          [
+            _vm._v(
+              _vm._s(_vm.titleLength) +
+                "/60. Google cắt tiêu đề dài hơn 60 ký tự."
+            )
+          ]
+        )
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "form-group" },
+      [
+        _c("label", [_vm._v("Meta description")]),
+        _vm._v(" "),
+        _c("vs-textarea", {
+          attrs: { placeholder: "Mô tả ngắn trên Google." },
+          model: {
+            value: _vm.descriptionValue,
+            callback: function($$v) {
+              _vm.descriptionValue = $$v
+            },
+            expression: "descriptionValue"
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "small",
+          {
+            style: {
+              color: _vm.descriptionLength > 160 ? "#c0392b" : "#6b7280"
+            }
+          },
+          [
+            _vm._v(
+              _vm._s(_vm.descriptionLength) +
+                "/160. Google cắt mô tả dài hơn 160 ký tự."
+            )
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/_common/tinymce.vue?vue&type=template&id=f625c7e2&":
 /*!******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/_common/tinymce.vue?vue&type=template&id=f625c7e2& ***!
@@ -317732,267 +317976,290 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 grid-margin stretch-card" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Tên tin tức")]),
-                _vm._v(" "),
-                _c("vs-input", {
-                  staticClass: "w-100",
-                  attrs: {
-                    type: "text",
-                    size: "default",
-                    placeholder: "Tên bài viết"
-                  },
-                  model: {
-                    value: _vm.objData.title[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.title[0], "content", $$v)
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Tên tin tức")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "Tên bài viết"
                     },
-                    expression: "objData.title[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "el-button",
-                  {
-                    attrs: { size: "small" },
-                    on: {
-                      click: function($event) {
-                        return _vm.showSettingLangExist("name")
-                      }
+                    model: {
+                      value: _vm.objData.title[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.title[0], "content", $$v)
+                      },
+                      expression: "objData.title[0].content"
                     }
-                  },
-                  [_vm._v("Đa ngôn ngữ")]
-                ),
-                _vm._v(" "),
-                _vm.showLang.title == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            index != 0
-                              ? _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.objData.title[index].content,
-                                      expression: "objData.title[index].content"
-                                    }
-                                  ],
-                                  staticClass: "w-100 inputlang",
-                                  attrs: {
-                                    type: "text",
-                                    size: "default",
-                                    placeholder: "Tên sản phẩm"
-                                  },
-                                  domProps: {
-                                    value: _vm.objData.title[index].content
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { size: "small" },
+                      on: {
+                        click: function($event) {
+                          return _vm.showSettingLangExist("name")
+                        }
+                      }
+                    },
+                    [_vm._v("Đa ngôn ngữ")]
+                  ),
+                  _vm._v(" "),
+                  _vm.showLang.title == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              index != 0
+                                ? _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.objData.title[index].content,
+                                        expression:
+                                          "objData.title[index].content"
                                       }
-                                      _vm.$set(
-                                        _vm.objData.title[index],
-                                        "content",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              : _vm._e()
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Nội dung")]),
-                _vm._v(" "),
-                _c("TinyMce", {
-                  model: {
-                    value: _vm.objData.content[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.content[0], "content", $$v)
-                    },
-                    expression: "objData.content[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "el-button",
-                  {
-                    attrs: { size: "small" },
-                    on: {
-                      click: function($event) {
-                        return _vm.showSettingLangExist("content")
-                      }
-                    }
-                  },
-                  [_vm._v("Đa ngôn ngữ")]
-                ),
-                _vm._v(" "),
-                _vm.showLang.content == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            index != 0
-                              ? _c("TinyMce", {
-                                  model: {
-                                    value: _vm.objData.content[index].content,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.objData.content[index],
-                                        "content",
-                                        $$v
-                                      )
+                                    ],
+                                    staticClass: "w-100 inputlang",
+                                    attrs: {
+                                      type: "text",
+                                      size: "default",
+                                      placeholder: "Tên sản phẩm"
                                     },
-                                    expression: "objData.content[index].content"
-                                  }
-                                })
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Mô tả ngắn")]),
-                _vm._v(" "),
-                _c("vs-input", {
-                  staticClass: "w-100",
-                  attrs: {
-                    type: "text",
-                    size: "default",
-                    placeholder: "Tên bài viết"
-                  },
-                  model: {
-                    value: _vm.objData.description[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.description[0], "content", $$v)
-                    },
-                    expression: "objData.description[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _c(
-                  "el-button",
-                  {
-                    attrs: { size: "small" },
-                    on: {
-                      click: function($event) {
-                        return _vm.showSettingLangExist("description")
-                      }
+                                    domProps: {
+                                      value: _vm.objData.title[index].content
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.objData.title[index],
+                                          "content",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                : _vm._e()
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Nội dung")]),
+                  _vm._v(" "),
+                  _c("TinyMce", {
+                    model: {
+                      value: _vm.objData.content[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.content[0], "content", $$v)
+                      },
+                      expression: "objData.content[0].content"
                     }
-                  },
-                  [_vm._v("Đa ngôn ngữ")]
-                ),
-                _vm._v(" "),
-                _vm.showLang.description == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c("vs-input", {
-                              staticClass: "w-100",
-                              attrs: {
-                                type: "text",
-                                size: "default",
-                                placeholder: "Tên bài viết"
-                              },
-                              model: {
-                                value: _vm.objData.description[index].content,
-                                callback: function($$v) {
-                                  _vm.$set(
-                                    _vm.objData.description[index],
-                                    "content",
-                                    $$v
-                                  )
-                                },
-                                expression: "objData.description[index].content"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Ảnh đại diện")]),
-                _vm._v(" "),
-                _c("image-upload", {
-                  attrs: {
-                    type: "avatar",
-                    title: _vm.objData.title[0].content
-                  },
-                  model: {
-                    value: _vm.objData.image,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData, "image", $$v)
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { size: "small" },
+                      on: {
+                        click: function($event) {
+                          return _vm.showSettingLangExist("content")
+                        }
+                      }
                     },
-                    expression: "objData.image"
+                    [_vm._v("Đa ngôn ngữ")]
+                  ),
+                  _vm._v(" "),
+                  _vm.showLang.content == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              index != 0
+                                ? _c("TinyMce", {
+                                    model: {
+                                      value: _vm.objData.content[index].content,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.objData.content[index],
+                                          "content",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "objData.content[index].content"
+                                    }
+                                  })
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Mô tả ngắn")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "Tên bài viết"
+                    },
+                    model: {
+                      value: _vm.objData.description[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.description[0], "content", $$v)
+                      },
+                      expression: "objData.description[0].content"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { size: "small" },
+                      on: {
+                        click: function($event) {
+                          return _vm.showSettingLangExist("description")
+                        }
+                      }
+                    },
+                    [_vm._v("Đa ngôn ngữ")]
+                  ),
+                  _vm._v(" "),
+                  _vm.showLang.description == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("vs-input", {
+                                staticClass: "w-100",
+                                attrs: {
+                                  type: "text",
+                                  size: "default",
+                                  placeholder: "Tên bài viết"
+                                },
+                                model: {
+                                  value: _vm.objData.description[index].content,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.objData.description[index],
+                                      "content",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "objData.description[index].content"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("seo-fields", {
+                attrs: {
+                  title: _vm.objData.seo_title,
+                  description: _vm.objData.meta_description
+                },
+                on: {
+                  "update:title": function($event) {
+                    return _vm.$set(_vm.objData, "seo_title", $event)
+                  },
+                  "update:description": function($event) {
+                    return _vm.$set(_vm.objData, "meta_description", $event)
                   }
-                })
-              ],
-              1
-            )
-          ])
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Ảnh đại diện")]),
+                  _vm._v(" "),
+                  _c("image-upload", {
+                    attrs: {
+                      type: "avatar",
+                      title: _vm.objData.title[0].content
+                    },
+                    model: {
+                      value: _vm.objData.image,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "image", $$v)
+                      },
+                      expression: "objData.image"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
         ])
       ]),
       _vm._v(" "),
@@ -318199,161 +318466,185 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c("form", { staticClass: "forms-sample" }, [
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("vs-input", {
-                    staticClass: "w-100",
-                    attrs: {
-                      "font-size": "40px",
-                      "label-placeholder": "Tên danh mục"
-                    },
-                    model: {
-                      value: _vm.objData.name[0].content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData.name[0], "content", $$v)
+            _c(
+              "form",
+              { staticClass: "forms-sample" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("vs-input", {
+                      staticClass: "w-100",
+                      attrs: {
+                        "font-size": "40px",
+                        "label-placeholder": "Tên danh mục"
                       },
-                      expression: "objData.name[0].content"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.showLang.title == true
-                    ? _c(
-                        "div",
-                        { staticClass: "dropLanguage" },
-                        _vm._l(_vm.lang, function(item, index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "form-group" },
-                            [
-                              index != 0
-                                ? _c("label", [_vm._v(_vm._s(item.name))])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              index != 0
-                                ? _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.objData.name[index].content,
-                                        expression:
-                                          "objData.name[index].content"
-                                      }
-                                    ],
-                                    staticClass: "w-100 inputlang",
-                                    attrs: {
-                                      type: "text",
-                                      size: "default",
-                                      placeholder: "Tên sản phẩm"
-                                    },
-                                    domProps: {
-                                      value: _vm.objData.name[index].content
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.objData.name[index],
-                                          "content",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                : _vm._e()
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("vs-input", {
-                    staticClass: "w-100",
-                    attrs: { "font-size": "40px", "label-placeholder": "Link" },
-                    model: {
-                      value: _vm.objData.path,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "path", $$v)
-                      },
-                      expression: "objData.path"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", { attrs: { for: "exampleSelectGender" } }, [
-                    _vm._v("Ảnh bìa")
-                  ]),
-                  _vm._v(" "),
-                  _c("image-upload", {
-                    attrs: {
-                      type: "avatar",
-                      title: _vm.objData.name[0].content
-                    },
-                    model: {
-                      value: _vm.objData.avatar,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "avatar", $$v)
-                      },
-                      expression: "objData.avatar"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", { attrs: { for: "exampleInputName1" } }, [
-                    _vm._v("Trạng thái")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "vs-select",
-                    {
                       model: {
-                        value: _vm.objData.status,
+                        value: _vm.objData.name[0].content,
                         callback: function($$v) {
-                          _vm.$set(_vm.objData, "status", $$v)
+                          _vm.$set(_vm.objData.name[0], "content", $$v)
                         },
-                        expression: "objData.status"
+                        expression: "objData.name[0].content"
                       }
+                    }),
+                    _vm._v(" "),
+                    _vm.showLang.title == true
+                      ? _c(
+                          "div",
+                          { staticClass: "dropLanguage" },
+                          _vm._l(_vm.lang, function(item, index) {
+                            return _c(
+                              "div",
+                              { key: index, staticClass: "form-group" },
+                              [
+                                index != 0
+                                  ? _c("label", [_vm._v(_vm._s(item.name))])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                index != 0
+                                  ? _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.objData.name[index].content,
+                                          expression:
+                                            "objData.name[index].content"
+                                        }
+                                      ],
+                                      staticClass: "w-100 inputlang",
+                                      attrs: {
+                                        type: "text",
+                                        size: "default",
+                                        placeholder: "Tên sản phẩm"
+                                      },
+                                      domProps: {
+                                        value: _vm.objData.name[index].content
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.objData.name[index],
+                                            "content",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  : _vm._e()
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("seo-fields", {
+                  attrs: {
+                    title: _vm.objData.seo_title,
+                    description: _vm.objData.meta_description
+                  },
+                  on: {
+                    "update:title": function($event) {
+                      return _vm.$set(_vm.objData, "seo_title", $event)
                     },
-                    [
-                      _c("vs-select-item", {
-                        attrs: { value: "1", text: "Hiện" }
-                      }),
-                      _vm._v(" "),
-                      _c("vs-select-item", {
-                        attrs: { value: "0", text: "Ẩn" }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ])
+                    "update:description": function($event) {
+                      return _vm.$set(_vm.objData, "meta_description", $event)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("vs-input", {
+                      staticClass: "w-100",
+                      attrs: {
+                        "font-size": "40px",
+                        "label-placeholder": "Link"
+                      },
+                      model: {
+                        value: _vm.objData.path,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "path", $$v)
+                        },
+                        expression: "objData.path"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "exampleSelectGender" } }, [
+                      _vm._v("Ảnh bìa")
+                    ]),
+                    _vm._v(" "),
+                    _c("image-upload", {
+                      attrs: {
+                        type: "avatar",
+                        title: _vm.objData.name[0].content
+                      },
+                      model: {
+                        value: _vm.objData.avatar,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "avatar", $$v)
+                        },
+                        expression: "objData.avatar"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "exampleInputName1" } }, [
+                      _vm._v("Trạng thái")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "vs-select",
+                      {
+                        model: {
+                          value: _vm.objData.status,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "status", $$v)
+                          },
+                          expression: "objData.status"
+                        }
+                      },
+                      [
+                        _c("vs-select-item", {
+                          attrs: { value: "1", text: "Hiện" }
+                        }),
+                        _vm._v(" "),
+                        _c("vs-select-item", {
+                          attrs: { value: "0", text: "Ẩn" }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -318636,225 +318927,248 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 grid-margin stretch-card" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Tên tin tức")]),
-                _vm._v(" "),
-                _c("vs-input", {
-                  staticClass: "w-100",
-                  attrs: {
-                    type: "text",
-                    size: "default",
-                    placeholder: "Tên bài viết"
-                  },
-                  model: {
-                    value: _vm.objData.title[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.title[0], "content", $$v)
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Tên tin tức")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "Tên bài viết"
                     },
-                    expression: "objData.title[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _vm.showLang.title == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            index != 0
-                              ? _c("input", {
-                                  directives: [
-                                    {
-                                      name: "model",
-                                      rawName: "v-model",
-                                      value: _vm.objData.title[index].content,
-                                      expression: "objData.title[index].content"
-                                    }
-                                  ],
-                                  staticClass: "w-100 inputlang",
-                                  attrs: {
-                                    type: "text",
-                                    size: "default",
-                                    placeholder: "Tên sản phẩm"
-                                  },
-                                  domProps: {
-                                    value: _vm.objData.title[index].content
-                                  },
-                                  on: {
-                                    input: function($event) {
-                                      if ($event.target.composing) {
-                                        return
+                    model: {
+                      value: _vm.objData.title[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.title[0], "content", $$v)
+                      },
+                      expression: "objData.title[0].content"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.showLang.title == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              index != 0
+                                ? _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.objData.title[index].content,
+                                        expression:
+                                          "objData.title[index].content"
                                       }
-                                      _vm.$set(
-                                        _vm.objData.title[index],
-                                        "content",
-                                        $event.target.value
-                                      )
-                                    }
-                                  }
-                                })
-                              : _vm._e()
-                          ]
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Nội dung")]),
-                _vm._v(" "),
-                _c("TinyMce", {
-                  model: {
-                    value: _vm.objData.content[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.content[0], "content", $$v)
-                    },
-                    expression: "objData.content[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _vm.showLang.content == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            index != 0
-                              ? _c("TinyMce", {
-                                  model: {
-                                    value: _vm.objData.content[index].content,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.objData.content[index],
-                                        "content",
-                                        $$v
-                                      )
+                                    ],
+                                    staticClass: "w-100 inputlang",
+                                    attrs: {
+                                      type: "text",
+                                      size: "default",
+                                      placeholder: "Tên sản phẩm"
                                     },
-                                    expression: "objData.content[index].content"
-                                  }
-                                })
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Mô tả ngắn")]),
-                _vm._v(" "),
-                _c("vs-input", {
-                  staticClass: "w-100",
-                  attrs: {
-                    type: "text",
-                    size: "default",
-                    placeholder: "Tên bài viết"
-                  },
-                  model: {
-                    value: _vm.objData.description[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.description[0], "content", $$v)
+                                    domProps: {
+                                      value: _vm.objData.title[index].content
+                                    },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.objData.title[index],
+                                          "content",
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                : _vm._e()
+                            ]
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Nội dung")]),
+                  _vm._v(" "),
+                  _c("TinyMce", {
+                    model: {
+                      value: _vm.objData.content[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.content[0], "content", $$v)
+                      },
+                      expression: "objData.content[0].content"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.showLang.content == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              index != 0
+                                ? _c("TinyMce", {
+                                    model: {
+                                      value: _vm.objData.content[index].content,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.objData.content[index],
+                                          "content",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "objData.content[index].content"
+                                    }
+                                  })
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Mô tả ngắn")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "Tên bài viết"
                     },
-                    expression: "objData.description[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _vm.showLang.description == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c("vs-input", {
-                              staticClass: "w-100",
-                              attrs: {
-                                type: "text",
-                                size: "default",
-                                placeholder: "Tên bài viết"
-                              },
-                              model: {
-                                value: _vm.objData.description[index].content,
-                                callback: function($$v) {
-                                  _vm.$set(
-                                    _vm.objData.description[index],
-                                    "content",
-                                    $$v
-                                  )
+                    model: {
+                      value: _vm.objData.description[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.description[0], "content", $$v)
+                      },
+                      expression: "objData.description[0].content"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.showLang.description == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              _c("vs-input", {
+                                staticClass: "w-100",
+                                attrs: {
+                                  type: "text",
+                                  size: "default",
+                                  placeholder: "Tên bài viết"
                                 },
-                                expression: "objData.description[index].content"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Ảnh đại diện")]),
-                _vm._v(" "),
-                _c("image-upload", {
-                  attrs: { type: "avatar", title: "img" },
-                  model: {
-                    value: _vm.objData.image,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData, "image", $$v)
-                    },
-                    expression: "objData.image"
+                                model: {
+                                  value: _vm.objData.description[index].content,
+                                  callback: function($$v) {
+                                    _vm.$set(
+                                      _vm.objData.description[index],
+                                      "content",
+                                      $$v
+                                    )
+                                  },
+                                  expression:
+                                    "objData.description[index].content"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("seo-fields", {
+                attrs: {
+                  title: _vm.objData.seo_title,
+                  description: _vm.objData.meta_description
+                },
+                on: {
+                  "update:title": function($event) {
+                    return _vm.$set(_vm.objData, "seo_title", $event)
+                  },
+                  "update:description": function($event) {
+                    return _vm.$set(_vm.objData, "meta_description", $event)
                   }
-                })
-              ],
-              1
-            )
-          ])
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Ảnh đại diện")]),
+                  _vm._v(" "),
+                  _c("image-upload", {
+                    attrs: { type: "avatar", title: "img" },
+                    model: {
+                      value: _vm.objData.image,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "image", $$v)
+                      },
+                      expression: "objData.image"
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          )
         ])
       ]),
       _vm._v(" "),
@@ -319780,176 +320094,197 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c("form", { staticClass: "forms-sample" }, [
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("vs-input", {
-                    staticClass: "w-100",
-                    attrs: {
-                      "font-size": "40px",
-                      "label-placeholder": "Tên danh mục"
-                    },
-                    model: {
-                      value: _vm.objData.name[0].content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData.name[0], "content", $$v)
+            _c(
+              "form",
+              { staticClass: "forms-sample" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("vs-input", {
+                      staticClass: "w-100",
+                      attrs: {
+                        "font-size": "40px",
+                        "label-placeholder": "Tên danh mục"
                       },
-                      expression: "objData.name[0].content"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.showLang.title == true
-                    ? _c(
-                        "div",
-                        { staticClass: "dropLanguage" },
-                        _vm._l(_vm.lang, function(item, index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "form-group" },
-                            [
-                              index != 0
-                                ? _c("label", [_vm._v(_vm._s(item.name))])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              index != 0
-                                ? _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.objData.name[index].content,
-                                        expression:
-                                          "objData.name[index].content"
-                                      }
-                                    ],
-                                    staticClass: "w-100 inputlang",
-                                    attrs: {
-                                      type: "text",
-                                      size: "default",
-                                      placeholder: "Tên sản phẩm"
-                                    },
-                                    domProps: {
-                                      value: _vm.objData.name[index].content
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.objData.name[index],
-                                          "content",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                : _vm._e()
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Ảnh bìa")]),
-                  _vm._v(" "),
-                  _c("image-upload", {
-                    attrs: { type: "avatar", title: "danh-muc" },
-                    model: {
-                      value: _vm.objData.avatar,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "avatar", $$v)
-                      },
-                      expression: "objData.avatar"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Ảnh đại diện")]),
-                  _vm._v(" "),
-                  _c("image-upload", {
-                    attrs: { type: "avatar", title: "trang-chu" },
-                    model: {
-                      value: _vm.objData.imagehome,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "imagehome", $$v)
-                      },
-                      expression: "objData.imagehome"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Nội dung")]),
-                  _vm._v(" "),
-                  _c("TinyMce", {
-                    model: {
-                      value: _vm.objData.content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "content", $$v)
-                      },
-                      expression: "objData.content"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", { attrs: { for: "exampleInputName1" } }, [
-                    _vm._v("Trạng thái")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "vs-select",
-                    {
                       model: {
-                        value: _vm.objData.status,
+                        value: _vm.objData.name[0].content,
                         callback: function($$v) {
-                          _vm.$set(_vm.objData, "status", $$v)
+                          _vm.$set(_vm.objData.name[0], "content", $$v)
                         },
-                        expression: "objData.status"
+                        expression: "objData.name[0].content"
                       }
+                    }),
+                    _vm._v(" "),
+                    _vm.showLang.title == true
+                      ? _c(
+                          "div",
+                          { staticClass: "dropLanguage" },
+                          _vm._l(_vm.lang, function(item, index) {
+                            return _c(
+                              "div",
+                              { key: index, staticClass: "form-group" },
+                              [
+                                index != 0
+                                  ? _c("label", [_vm._v(_vm._s(item.name))])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                index != 0
+                                  ? _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.objData.name[index].content,
+                                          expression:
+                                            "objData.name[index].content"
+                                        }
+                                      ],
+                                      staticClass: "w-100 inputlang",
+                                      attrs: {
+                                        type: "text",
+                                        size: "default",
+                                        placeholder: "Tên sản phẩm"
+                                      },
+                                      domProps: {
+                                        value: _vm.objData.name[index].content
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.objData.name[index],
+                                            "content",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  : _vm._e()
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("seo-fields", {
+                  attrs: {
+                    title: _vm.objData.seo_title,
+                    description: _vm.objData.meta_description
+                  },
+                  on: {
+                    "update:title": function($event) {
+                      return _vm.$set(_vm.objData, "seo_title", $event)
                     },
-                    [
-                      _c("vs-select-item", {
-                        attrs: { value: "1", text: "Hiện" }
-                      }),
-                      _vm._v(" "),
-                      _c("vs-select-item", {
-                        attrs: { value: "0", text: "Ẩn" }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ])
+                    "update:description": function($event) {
+                      return _vm.$set(_vm.objData, "meta_description", $event)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Ảnh bìa")]),
+                    _vm._v(" "),
+                    _c("image-upload", {
+                      attrs: { type: "avatar", title: "danh-muc" },
+                      model: {
+                        value: _vm.objData.avatar,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "avatar", $$v)
+                        },
+                        expression: "objData.avatar"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Ảnh đại diện")]),
+                    _vm._v(" "),
+                    _c("image-upload", {
+                      attrs: { type: "avatar", title: "trang-chu" },
+                      model: {
+                        value: _vm.objData.imagehome,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "imagehome", $$v)
+                        },
+                        expression: "objData.imagehome"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Nội dung")]),
+                    _vm._v(" "),
+                    _c("TinyMce", {
+                      model: {
+                        value: _vm.objData.content,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "content", $$v)
+                        },
+                        expression: "objData.content"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "exampleInputName1" } }, [
+                      _vm._v("Trạng thái")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "vs-select",
+                      {
+                        model: {
+                          value: _vm.objData.status,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "status", $$v)
+                          },
+                          expression: "objData.status"
+                        }
+                      },
+                      [
+                        _c("vs-select-item", {
+                          attrs: { value: "1", text: "Hiện" }
+                        }),
+                        _vm._v(" "),
+                        _c("vs-select-item", {
+                          attrs: { value: "0", text: "Ẩn" }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -320026,175 +320361,196 @@ var render = function() {
           _c("div", { staticClass: "card-body" }, [
             _vm._m(0),
             _vm._v(" "),
-            _c("form", { staticClass: "forms-sample" }, [
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Tên")]),
-                  _vm._v(" "),
-                  _c("vs-input", {
-                    staticClass: "w-100",
-                    attrs: { "font-size": "40px" },
-                    model: {
-                      value: _vm.objData.name[0].content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData.name[0], "content", $$v)
-                      },
-                      expression: "objData.name[0].content"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.showLang.title == true
-                    ? _c(
-                        "div",
-                        { staticClass: "dropLanguage" },
-                        _vm._l(_vm.lang, function(item, index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "form-group" },
-                            [
-                              index != 0
-                                ? _c("label", [_vm._v(_vm._s(item.name))])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              index != 0
-                                ? _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.objData.name[index].content,
-                                        expression:
-                                          "objData.name[index].content"
-                                      }
-                                    ],
-                                    staticClass: "w-100 inputlang",
-                                    attrs: {
-                                      type: "text",
-                                      size: "default",
-                                      placeholder: "Tên sản phẩm"
-                                    },
-                                    domProps: {
-                                      value: _vm.objData.name[index].content
-                                    },
-                                    on: {
-                                      input: function($event) {
-                                        if ($event.target.composing) {
-                                          return
-                                        }
-                                        _vm.$set(
-                                          _vm.objData.name[index],
-                                          "content",
-                                          $event.target.value
-                                        )
-                                      }
-                                    }
-                                  })
-                                : _vm._e()
-                            ]
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Ảnh bìa")]),
-                  _vm._v(" "),
-                  _c("image-upload", {
-                    attrs: { type: "avatar", title: "danh-muc" },
-                    model: {
-                      value: _vm.objData.avatar,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "avatar", $$v)
-                      },
-                      expression: "objData.avatar"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Ảnh đại diện")]),
-                  _vm._v(" "),
-                  _c("image-upload", {
-                    attrs: { type: "avatar", title: "trang-chu" },
-                    model: {
-                      value: _vm.objData.imagehome,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "imagehome", $$v)
-                      },
-                      expression: "objData.imagehome"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Nội dung")]),
-                  _vm._v(" "),
-                  _c("TinyMce", {
-                    model: {
-                      value: _vm.objData.content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "content", $$v)
-                      },
-                      expression: "objData.content"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", { attrs: { for: "exampleInputName1" } }, [
-                    _vm._v("Trạng thái")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "vs-select",
-                    {
+            _c(
+              "form",
+              { staticClass: "forms-sample" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Tên")]),
+                    _vm._v(" "),
+                    _c("vs-input", {
+                      staticClass: "w-100",
+                      attrs: { "font-size": "40px" },
                       model: {
-                        value: _vm.objData.status,
+                        value: _vm.objData.name[0].content,
                         callback: function($$v) {
-                          _vm.$set(_vm.objData, "status", $$v)
+                          _vm.$set(_vm.objData.name[0], "content", $$v)
                         },
-                        expression: "objData.status"
+                        expression: "objData.name[0].content"
                       }
+                    }),
+                    _vm._v(" "),
+                    _vm.showLang.title == true
+                      ? _c(
+                          "div",
+                          { staticClass: "dropLanguage" },
+                          _vm._l(_vm.lang, function(item, index) {
+                            return _c(
+                              "div",
+                              { key: index, staticClass: "form-group" },
+                              [
+                                index != 0
+                                  ? _c("label", [_vm._v(_vm._s(item.name))])
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                index != 0
+                                  ? _c("input", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value:
+                                            _vm.objData.name[index].content,
+                                          expression:
+                                            "objData.name[index].content"
+                                        }
+                                      ],
+                                      staticClass: "w-100 inputlang",
+                                      attrs: {
+                                        type: "text",
+                                        size: "default",
+                                        placeholder: "Tên sản phẩm"
+                                      },
+                                      domProps: {
+                                        value: _vm.objData.name[index].content
+                                      },
+                                      on: {
+                                        input: function($event) {
+                                          if ($event.target.composing) {
+                                            return
+                                          }
+                                          _vm.$set(
+                                            _vm.objData.name[index],
+                                            "content",
+                                            $event.target.value
+                                          )
+                                        }
+                                      }
+                                    })
+                                  : _vm._e()
+                              ]
+                            )
+                          }),
+                          0
+                        )
+                      : _vm._e()
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("seo-fields", {
+                  attrs: {
+                    title: _vm.objData.seo_title,
+                    description: _vm.objData.meta_description
+                  },
+                  on: {
+                    "update:title": function($event) {
+                      return _vm.$set(_vm.objData, "seo_title", $event)
                     },
-                    [
-                      _c("vs-select-item", {
-                        attrs: { value: "1", text: "Hiện" }
-                      }),
-                      _vm._v(" "),
-                      _c("vs-select-item", {
-                        attrs: { value: "0", text: "Ẩn" }
-                      })
-                    ],
-                    1
-                  )
-                ],
-                1
-              )
-            ])
+                    "update:description": function($event) {
+                      return _vm.$set(_vm.objData, "meta_description", $event)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Ảnh bìa")]),
+                    _vm._v(" "),
+                    _c("image-upload", {
+                      attrs: { type: "avatar", title: "danh-muc" },
+                      model: {
+                        value: _vm.objData.avatar,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "avatar", $$v)
+                        },
+                        expression: "objData.avatar"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Ảnh đại diện")]),
+                    _vm._v(" "),
+                    _c("image-upload", {
+                      attrs: { type: "avatar", title: "trang-chu" },
+                      model: {
+                        value: _vm.objData.imagehome,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "imagehome", $$v)
+                        },
+                        expression: "objData.imagehome"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", [_vm._v("Nội dung")]),
+                    _vm._v(" "),
+                    _c("TinyMce", {
+                      model: {
+                        value: _vm.objData.content,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "content", $$v)
+                        },
+                        expression: "objData.content"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "form-group" },
+                  [
+                    _c("label", { attrs: { for: "exampleInputName1" } }, [
+                      _vm._v("Trạng thái")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "vs-select",
+                      {
+                        model: {
+                          value: _vm.objData.status,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "status", $$v)
+                          },
+                          expression: "objData.status"
+                        }
+                      },
+                      [
+                        _c("vs-select-item", {
+                          attrs: { value: "1", text: "Hiện" }
+                        }),
+                        _vm._v(" "),
+                        _c("vs-select-item", {
+                          attrs: { value: "0", text: "Ẩn" }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
           ])
         ])
       ])
@@ -325237,6 +325593,21 @@ var render = function() {
           1
         ),
         _vm._v(" "),
+        _c("seo-fields", {
+          attrs: {
+            title: _vm.objData.seo_title,
+            description: _vm.objData.meta_description
+          },
+          on: {
+            "update:title": function($event) {
+              return _vm.$set(_vm.objData, "seo_title", $event)
+            },
+            "update:description": function($event) {
+              return _vm.$set(_vm.objData, "meta_description", $event)
+            }
+          }
+        }),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "form-group" },
@@ -325331,7 +325702,8 @@ var render = function() {
           ],
           1
         )
-      ]
+      ],
+      1
     )
   ])
 }
@@ -325665,6 +326037,21 @@ var render = function() {
           1
         ),
         _vm._v(" "),
+        _c("seo-fields", {
+          attrs: {
+            title: _vm.objData.seo_title,
+            description: _vm.objData.meta_description
+          },
+          on: {
+            "update:title": function($event) {
+              return _vm.$set(_vm.objData, "seo_title", $event)
+            },
+            "update:description": function($event) {
+              return _vm.$set(_vm.objData, "meta_description", $event)
+            }
+          }
+        }),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "form-group" },
@@ -325760,7 +326147,8 @@ var render = function() {
           ],
           1
         )
-      ]
+      ],
+      1
     )
   ])
 }
@@ -328370,191 +328758,133 @@ var render = function() {
       [
         _c("div", { staticClass: "col-md-8 grid-margin stretch-card" }, [
           _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-body" }, [
-              _c("h4", { staticClass: "section-title" }, [
-                _vm._v("Định danh và giá")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "section-hint" }, [
-                _vm._v(
-                  "Nhập những thông tin quyết định tour trước. Nội dung dài và ảnh nằm ở bước 3."
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Tên tour")]),
-                  _vm._v(" "),
-                  _c("vs-input", {
-                    staticClass: "w-100",
-                    attrs: {
-                      type: "text",
-                      size: "default",
-                      placeholder: "Tên tour"
-                    },
-                    model: {
-                      value: _vm.objData.name,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "name", $$v)
-                      },
-                      expression: "objData.name"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group col-md-4" },
-                  [
-                    _c("label", [_vm._v("Điểm đi")]),
-                    _vm._v(" "),
-                    _c("vs-input", {
-                      staticClass: "w-100",
-                      attrs: { type: "text", placeholder: "Hà Nội" },
-                      model: {
-                        value: _vm.objData.thickness,
-                        callback: function($$v) {
-                          _vm.$set(_vm.objData, "thickness", $$v)
-                        },
-                        expression: "objData.thickness"
-                      }
-                    })
-                  ],
-                  1
-                ),
+            _c(
+              "div",
+              { staticClass: "card-body" },
+              [
+                _c("h4", { staticClass: "section-title" }, [
+                  _vm._v("Định danh và giá")
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "section-hint" }, [
+                  _vm._v(
+                    "Nhập những thông tin quyết định tour trước. Nội dung dài và ảnh nằm ở bước 3."
+                  )
+                ]),
                 _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "form-group col-md-4" },
+                  { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Điểm đến")]),
+                    _c("label", [_vm._v("Tên tour")]),
                     _vm._v(" "),
                     _c("vs-input", {
                       staticClass: "w-100",
                       attrs: {
                         type: "text",
-                        placeholder: "Ninh Bình, Hạ Long..."
+                        size: "default",
+                        placeholder: "Tên tour"
                       },
                       model: {
-                        value: _vm.objData.origin,
+                        value: _vm.objData.name,
                         callback: function($$v) {
-                          _vm.$set(_vm.objData, "origin", $$v)
+                          _vm.$set(_vm.objData, "name", $$v)
                         },
-                        expression: "objData.origin"
+                        expression: "objData.name"
                       }
                     })
                   ],
                   1
                 ),
                 _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-md-4" },
+                    [
+                      _c("label", [_vm._v("Điểm đi")]),
+                      _vm._v(" "),
+                      _c("vs-input", {
+                        staticClass: "w-100",
+                        attrs: { type: "text", placeholder: "Hà Nội" },
+                        model: {
+                          value: _vm.objData.thickness,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "thickness", $$v)
+                          },
+                          expression: "objData.thickness"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-md-4" },
+                    [
+                      _c("label", [_vm._v("Điểm đến")]),
+                      _vm._v(" "),
+                      _c("vs-input", {
+                        staticClass: "w-100",
+                        attrs: {
+                          type: "text",
+                          placeholder: "Ninh Bình, Hạ Long..."
+                        },
+                        model: {
+                          value: _vm.objData.origin,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "origin", $$v)
+                          },
+                          expression: "objData.origin"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-md-4" },
+                    [
+                      _c("label", [_vm._v("Thời lượng")]),
+                      _vm._v(" "),
+                      _c("vs-input", {
+                        staticClass: "w-100",
+                        attrs: {
+                          type: "text",
+                          placeholder: "VD: 2 ngày 1 đêm"
+                        },
+                        model: {
+                          value: _vm.objData.hang_muc,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "hang_muc", $$v)
+                          },
+                          expression: "objData.hang_muc"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ]),
+                _vm._v(" "),
                 _c(
                   "div",
-                  { staticClass: "form-group col-md-4" },
+                  { staticClass: "form-group" },
                   [
-                    _c("label", [_vm._v("Thời lượng")]),
+                    _c("label", [_vm._v("Mô tả ngắn")]),
                     _vm._v(" "),
-                    _c("vs-input", {
-                      staticClass: "w-100",
-                      attrs: { type: "text", placeholder: "VD: 2 ngày 1 đêm" },
+                    _c("vs-textarea", {
                       model: {
-                        value: _vm.objData.hang_muc,
+                        value: _vm.objData.description[0].content,
                         callback: function($$v) {
-                          _vm.$set(_vm.objData, "hang_muc", $$v)
+                          _vm.$set(_vm.objData.description[0], "content", $$v)
                         },
-                        expression: "objData.hang_muc"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "form-group" },
-                [
-                  _c("label", [_vm._v("Mô tả ngắn")]),
-                  _vm._v(" "),
-                  _c("vs-textarea", {
-                    model: {
-                      value: _vm.objData.description[0].content,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData.description[0], "content", $$v)
-                      },
-                      expression: "objData.description[0].content"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _vm.showLang.description == true
-                    ? _c(
-                        "div",
-                        { staticClass: "dropLanguage" },
-                        _vm._l(_vm.lang, function(item, index) {
-                          return _c(
-                            "div",
-                            { key: index, staticClass: "form-group" },
-                            [
-                              index != 0
-                                ? _c("label", [_vm._v(_vm._s(item.name))])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              index != 0
-                                ? _c("vs-textarea", {
-                                    model: {
-                                      value:
-                                        _vm.objData.description[index].content,
-                                      callback: function($$v) {
-                                        _vm.$set(
-                                          _vm.objData.description[index],
-                                          "content",
-                                          $$v
-                                        )
-                                      },
-                                      expression:
-                                        "objData.description[index].content"
-                                    }
-                                  })
-                                : _vm._e()
-                            ],
-                            1
-                          )
-                        }),
-                        0
-                      )
-                    : _vm._e()
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group col-4" },
-                  [
-                    _c("label", [_vm._v("Giá người lớn")]),
-                    _vm._v(" "),
-                    _c("vs-input", {
-                      staticClass: "w-100",
-                      attrs: {
-                        type: "number",
-                        size: "default",
-                        icon: "all_inclusive"
-                      },
-                      model: {
-                        value: _vm.objData.price[0].content,
-                        callback: function($$v) {
-                          _vm.$set(_vm.objData.price[0], "content", $$v)
-                        },
-                        expression: "objData.price[0].content"
+                        expression: "objData.description[0].content"
                       }
                     }),
                     _vm._v(" "),
-                    _vm.showLang.price == true
+                    _vm.showLang.description == true
                       ? _c(
                           "div",
                           { staticClass: "dropLanguage" },
@@ -328568,93 +328898,20 @@ var render = function() {
                                   : _vm._e(),
                                 _vm._v(" "),
                                 index != 0
-                                  ? _c("vs-input", {
-                                      staticClass: "w-100",
-                                      attrs: {
-                                        type: "number",
-                                        size: "default",
-                                        icon: "all_inclusive"
-                                      },
-                                      model: {
-                                        value: _vm.objData.price[index].content,
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            _vm.objData.price[index],
-                                            "content",
-                                            $$v
-                                          )
-                                        },
-                                        expression:
-                                          "objData.price[index].content"
-                                      }
-                                    })
-                                  : _vm._e()
-                              ],
-                              1
-                            )
-                          }),
-                          0
-                        )
-                      : _vm._e()
-                  ],
-                  1
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "form-group col-4" },
-                  [
-                    _c("label", [_vm._v("Giá trẻ em")]),
-                    _vm._v(" "),
-                    _c("vs-input", {
-                      staticClass: "w-100",
-                      attrs: {
-                        type: "number",
-                        size: "default",
-                        icon: "all_inclusive"
-                      },
-                      model: {
-                        value: _vm.objData.price_chil[0].content,
-                        callback: function($$v) {
-                          _vm.$set(_vm.objData.price_chil[0], "content", $$v)
-                        },
-                        expression: "objData.price_chil[0].content"
-                      }
-                    }),
-                    _vm._v(" "),
-                    _vm.showLang.price_chil == true
-                      ? _c(
-                          "div",
-                          { staticClass: "dropLanguage" },
-                          _vm._l(_vm.lang, function(item, index) {
-                            return _c(
-                              "div",
-                              { key: index, staticClass: "form-group" },
-                              [
-                                index != 0
-                                  ? _c("label", [_vm._v(_vm._s(item.name))])
-                                  : _vm._e(),
-                                _vm._v(" "),
-                                index != 0
-                                  ? _c("vs-input", {
-                                      staticClass: "w-100",
-                                      attrs: {
-                                        type: "number",
-                                        size: "default",
-                                        icon: "all_inclusive"
-                                      },
+                                  ? _c("vs-textarea", {
                                       model: {
                                         value:
-                                          _vm.objData.price_chil[index].content,
+                                          _vm.objData.description[index]
+                                            .content,
                                         callback: function($$v) {
                                           _vm.$set(
-                                            _vm.objData.price_chil[index],
+                                            _vm.objData.description[index],
                                             "content",
                                             $$v
                                           )
                                         },
                                         expression:
-                                          "objData.price_chil[index].content"
+                                          "objData.description[index].content"
                                       }
                                     })
                                   : _vm._e()
@@ -328669,127 +328926,290 @@ var render = function() {
                   1
                 ),
                 _vm._v(" "),
-                _vm.variantstatus == false
-                  ? _c(
-                      "div",
-                      { staticClass: "form-group col-4" },
-                      [
-                        _c("label", [_vm._v("Giá chưa khuyến mãi")]),
-                        _vm._v(" "),
-                        _c("vs-input", {
-                          staticClass: "w-100",
-                          attrs: {
-                            type: "number",
-                            size: "default",
-                            icon: "all_inclusive"
-                          },
-                          model: {
-                            value: _vm.objData.discount[0].content,
-                            callback: function($$v) {
-                              _vm.$set(_vm.objData.discount[0], "content", $$v)
-                            },
-                            expression: "objData.discount[0].content"
-                          }
-                        }),
-                        _vm._v(" "),
-                        _vm.showLang.discount == true
-                          ? _c(
-                              "div",
-                              { staticClass: "dropLanguage" },
-                              _vm._l(_vm.lang, function(item, index) {
-                                return _c(
-                                  "div",
-                                  { key: index, staticClass: "form-group" },
-                                  [
-                                    index != 0
-                                      ? _c("label", [_vm._v(_vm._s(item.name))])
-                                      : _vm._e(),
-                                    _vm._v(" "),
-                                    index != 0
-                                      ? _c("vs-input", {
-                                          staticClass: "w-100",
-                                          attrs: {
-                                            type: "number",
-                                            size: "default",
-                                            icon: "all_inclusive"
-                                          },
-                                          model: {
-                                            value:
-                                              _vm.objData.discount[index]
-                                                .content,
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                _vm.objData.discount[index],
-                                                "content",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "objData.discount[index].content"
-                                          }
-                                        })
-                                      : _vm._e()
-                                  ],
-                                  1
-                                )
-                              }),
-                              0
-                            )
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  : _vm._e()
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "row" }, [
-                _c(
-                  "div",
-                  { staticClass: "form-group col-md-6" },
-                  [
-                    _c("label", [_vm._v("Price includes")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "section-hint" }, [
-                      _vm._v("Mỗi dòng là một mục đã bao gồm trong giá.")
-                    ]),
-                    _vm._v(" "),
-                    _c("vs-textarea", {
-                      model: {
-                        value: _vm.priceIncludesText,
-                        callback: function($$v) {
-                          _vm.priceIncludesText = $$v
-                        },
-                        expression: "priceIncludesText"
-                      }
-                    })
-                  ],
-                  1
-                ),
+                _c("seo-fields", {
+                  attrs: {
+                    title: _vm.objData.seo_title,
+                    description: _vm.objData.meta_description
+                  },
+                  on: {
+                    "update:title": function($event) {
+                      return _vm.$set(_vm.objData, "seo_title", $event)
+                    },
+                    "update:description": function($event) {
+                      return _vm.$set(_vm.objData, "meta_description", $event)
+                    }
+                  }
+                }),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "form-group col-md-6" },
-                  [
-                    _c("label", [_vm._v("Price excludes")]),
-                    _vm._v(" "),
-                    _c("p", { staticClass: "section-hint" }, [
-                      _vm._v("Mỗi dòng là một mục không bao gồm trong giá.")
-                    ]),
-                    _vm._v(" "),
-                    _c("vs-textarea", {
-                      model: {
-                        value: _vm.priceExcludesText,
-                        callback: function($$v) {
-                          _vm.priceExcludesText = $$v
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-4" },
+                    [
+                      _c("label", [_vm._v("Giá người lớn")]),
+                      _vm._v(" "),
+                      _c("vs-input", {
+                        staticClass: "w-100",
+                        attrs: {
+                          type: "number",
+                          size: "default",
+                          icon: "all_inclusive"
                         },
-                        expression: "priceExcludesText"
-                      }
-                    })
-                  ],
-                  1
-                )
-              ])
-            ])
+                        model: {
+                          value: _vm.objData.price[0].content,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData.price[0], "content", $$v)
+                          },
+                          expression: "objData.price[0].content"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.showLang.price == true
+                        ? _c(
+                            "div",
+                            { staticClass: "dropLanguage" },
+                            _vm._l(_vm.lang, function(item, index) {
+                              return _c(
+                                "div",
+                                { key: index, staticClass: "form-group" },
+                                [
+                                  index != 0
+                                    ? _c("label", [_vm._v(_vm._s(item.name))])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  index != 0
+                                    ? _c("vs-input", {
+                                        staticClass: "w-100",
+                                        attrs: {
+                                          type: "number",
+                                          size: "default",
+                                          icon: "all_inclusive"
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.objData.price[index].content,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.objData.price[index],
+                                              "content",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "objData.price[index].content"
+                                        }
+                                      })
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            }),
+                            0
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-4" },
+                    [
+                      _c("label", [_vm._v("Giá trẻ em")]),
+                      _vm._v(" "),
+                      _c("vs-input", {
+                        staticClass: "w-100",
+                        attrs: {
+                          type: "number",
+                          size: "default",
+                          icon: "all_inclusive"
+                        },
+                        model: {
+                          value: _vm.objData.price_chil[0].content,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData.price_chil[0], "content", $$v)
+                          },
+                          expression: "objData.price_chil[0].content"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _vm.showLang.price_chil == true
+                        ? _c(
+                            "div",
+                            { staticClass: "dropLanguage" },
+                            _vm._l(_vm.lang, function(item, index) {
+                              return _c(
+                                "div",
+                                { key: index, staticClass: "form-group" },
+                                [
+                                  index != 0
+                                    ? _c("label", [_vm._v(_vm._s(item.name))])
+                                    : _vm._e(),
+                                  _vm._v(" "),
+                                  index != 0
+                                    ? _c("vs-input", {
+                                        staticClass: "w-100",
+                                        attrs: {
+                                          type: "number",
+                                          size: "default",
+                                          icon: "all_inclusive"
+                                        },
+                                        model: {
+                                          value:
+                                            _vm.objData.price_chil[index]
+                                              .content,
+                                          callback: function($$v) {
+                                            _vm.$set(
+                                              _vm.objData.price_chil[index],
+                                              "content",
+                                              $$v
+                                            )
+                                          },
+                                          expression:
+                                            "objData.price_chil[index].content"
+                                        }
+                                      })
+                                    : _vm._e()
+                                ],
+                                1
+                              )
+                            }),
+                            0
+                          )
+                        : _vm._e()
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.variantstatus == false
+                    ? _c(
+                        "div",
+                        { staticClass: "form-group col-4" },
+                        [
+                          _c("label", [_vm._v("Giá chưa khuyến mãi")]),
+                          _vm._v(" "),
+                          _c("vs-input", {
+                            staticClass: "w-100",
+                            attrs: {
+                              type: "number",
+                              size: "default",
+                              icon: "all_inclusive"
+                            },
+                            model: {
+                              value: _vm.objData.discount[0].content,
+                              callback: function($$v) {
+                                _vm.$set(
+                                  _vm.objData.discount[0],
+                                  "content",
+                                  $$v
+                                )
+                              },
+                              expression: "objData.discount[0].content"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _vm.showLang.discount == true
+                            ? _c(
+                                "div",
+                                { staticClass: "dropLanguage" },
+                                _vm._l(_vm.lang, function(item, index) {
+                                  return _c(
+                                    "div",
+                                    { key: index, staticClass: "form-group" },
+                                    [
+                                      index != 0
+                                        ? _c("label", [
+                                            _vm._v(_vm._s(item.name))
+                                          ])
+                                        : _vm._e(),
+                                      _vm._v(" "),
+                                      index != 0
+                                        ? _c("vs-input", {
+                                            staticClass: "w-100",
+                                            attrs: {
+                                              type: "number",
+                                              size: "default",
+                                              icon: "all_inclusive"
+                                            },
+                                            model: {
+                                              value:
+                                                _vm.objData.discount[index]
+                                                  .content,
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  _vm.objData.discount[index],
+                                                  "content",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "objData.discount[index].content"
+                                            }
+                                          })
+                                        : _vm._e()
+                                    ],
+                                    1
+                                  )
+                                }),
+                                0
+                              )
+                            : _vm._e()
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-md-6" },
+                    [
+                      _c("label", [_vm._v("Price includes")]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-hint" }, [
+                        _vm._v("Mỗi dòng là một mục đã bao gồm trong giá.")
+                      ]),
+                      _vm._v(" "),
+                      _c("vs-textarea", {
+                        model: {
+                          value: _vm.priceIncludesText,
+                          callback: function($$v) {
+                            _vm.priceIncludesText = $$v
+                          },
+                          expression: "priceIncludesText"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "form-group col-md-6" },
+                    [
+                      _c("label", [_vm._v("Price excludes")]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "section-hint" }, [
+                        _vm._v("Mỗi dòng là một mục không bao gồm trong giá.")
+                      ]),
+                      _vm._v(" "),
+                      _c("vs-textarea", {
+                        model: {
+                          value: _vm.priceExcludesText,
+                          callback: function($$v) {
+                            _vm.priceExcludesText = $$v
+                          },
+                          expression: "priceExcludesText"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ],
+              1
+            )
           ])
         ]),
         _vm._v(" "),
@@ -329401,506 +329821,347 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 grid-margin stretch-card" }, [
         _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Tên sản phẩm")]),
-                _vm._v(" "),
-                _c("vs-input", {
-                  staticClass: "w-100",
-                  attrs: {
-                    type: "text",
-                    size: "default",
-                    placeholder: "Tên sản phẩm"
+          _c(
+            "div",
+            { staticClass: "card-body" },
+            [
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Tên sản phẩm")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "Tên sản phẩm"
+                    },
+                    model: {
+                      value: _vm.objData.name,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "name", $$v)
+                      },
+                      expression: "objData.name"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Nội dung")]),
+                  _vm._v(" "),
+                  _c("TinyMce", {
+                    model: {
+                      value: _vm.objData.content[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.content[0], "content", $$v)
+                      },
+                      expression: "objData.content[0].content"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.showLang.content == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              index != 0
+                                ? _c("TinyMce", {
+                                    model: {
+                                      value: _vm.objData.content[index].content,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.objData.content[index],
+                                          "content",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "objData.content[index].content"
+                                    }
+                                  })
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Mô tả ngắn")]),
+                  _vm._v(" "),
+                  _c("vs-textarea", {
+                    model: {
+                      value: _vm.objData.description[0].content,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData.description[0], "content", $$v)
+                      },
+                      expression: "objData.description[0].content"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _vm.showLang.description == true
+                    ? _c(
+                        "div",
+                        { staticClass: "dropLanguage" },
+                        _vm._l(_vm.lang, function(item, index) {
+                          return _c(
+                            "div",
+                            { key: index, staticClass: "form-group" },
+                            [
+                              index != 0
+                                ? _c("label", [_vm._v(_vm._s(item.name))])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              index != 0
+                                ? _c("vs-textarea", {
+                                    model: {
+                                      value:
+                                        _vm.objData.description[index].content,
+                                      callback: function($$v) {
+                                        _vm.$set(
+                                          _vm.objData.description[index],
+                                          "content",
+                                          $$v
+                                        )
+                                      },
+                                      expression:
+                                        "objData.description[index].content"
+                                    }
+                                  })
+                                : _vm._e()
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : _vm._e()
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("seo-fields", {
+                attrs: {
+                  title: _vm.objData.seo_title,
+                  description: _vm.objData.meta_description
+                },
+                on: {
+                  "update:title": function($event) {
+                    return _vm.$set(_vm.objData, "seo_title", $event)
                   },
-                  model: {
-                    value: _vm.objData.name,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData, "name", $$v)
-                    },
-                    expression: "objData.name"
+                  "update:description": function($event) {
+                    return _vm.$set(_vm.objData, "meta_description", $event)
                   }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Nội dung")]),
-                _vm._v(" "),
-                _c("TinyMce", {
-                  model: {
-                    value: _vm.objData.content[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.content[0], "content", $$v)
-                    },
-                    expression: "objData.content[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _vm.showLang.content == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            index != 0
-                              ? _c("TinyMce", {
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Ảnh sản phẩm")]),
+                  _vm._v(" "),
+                  _c("ImageMulti", {
+                    attrs: { title: "san-pham" },
+                    model: {
+                      value: _vm.objData.images,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "images", $$v)
+                      },
+                      expression: "objData.images"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Mô tả hình ảnh")]),
+                  _vm._v(" "),
+                  _vm._l(_vm.objData.ingredient, function(item, index) {
+                    return _c("div", { key: index }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-11" }, [
+                          _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-9" },
+                              [
+                                _c("vs-input", {
+                                  staticClass: "w-100",
+                                  attrs: {
+                                    type: "text",
+                                    size: "default",
+                                    placeholder: "Tiêu đề " + index
+                                  },
                                   model: {
-                                    value: _vm.objData.content[index].content,
+                                    value: _vm.objData.ingredient[index].title,
                                     callback: function($$v) {
                                       _vm.$set(
-                                        _vm.objData.content[index],
-                                        "content",
-                                        $$v
-                                      )
-                                    },
-                                    expression: "objData.content[index].content"
-                                  }
-                                })
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Mô tả ngắn")]),
-                _vm._v(" "),
-                _c("vs-textarea", {
-                  model: {
-                    value: _vm.objData.description[0].content,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData.description[0], "content", $$v)
-                    },
-                    expression: "objData.description[0].content"
-                  }
-                }),
-                _vm._v(" "),
-                _vm.showLang.description == true
-                  ? _c(
-                      "div",
-                      { staticClass: "dropLanguage" },
-                      _vm._l(_vm.lang, function(item, index) {
-                        return _c(
-                          "div",
-                          { key: index, staticClass: "form-group" },
-                          [
-                            index != 0
-                              ? _c("label", [_vm._v(_vm._s(item.name))])
-                              : _vm._e(),
-                            _vm._v(" "),
-                            index != 0
-                              ? _c("vs-textarea", {
-                                  model: {
-                                    value:
-                                      _vm.objData.description[index].content,
-                                    callback: function($$v) {
-                                      _vm.$set(
-                                        _vm.objData.description[index],
-                                        "content",
+                                        _vm.objData.ingredient[index],
+                                        "title",
                                         $$v
                                       )
                                     },
                                     expression:
-                                      "objData.description[index].content"
+                                      "objData.ingredient[index].title"
                                   }
                                 })
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      }),
-                      0
-                    )
-                  : _vm._e()
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Ảnh sản phẩm")]),
-                _vm._v(" "),
-                _c("ImageMulti", {
-                  attrs: { title: "san-pham" },
-                  model: {
-                    value: _vm.objData.images,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData, "images", $$v)
-                    },
-                    expression: "objData.images"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Mô tả hình ảnh")]),
-                _vm._v(" "),
-                _vm._l(_vm.objData.ingredient, function(item, index) {
-                  return _c("div", { key: index }, [
-                    _c("div", { staticClass: "row" }, [
-                      _c("div", { staticClass: "col-11" }, [
-                        _c("div", { staticClass: "row" }, [
-                          _c(
-                            "div",
-                            { staticClass: "col-9" },
-                            [
-                              _c("vs-input", {
-                                staticClass: "w-100",
-                                attrs: {
-                                  type: "text",
-                                  size: "default",
-                                  placeholder: "Tiêu đề " + index
-                                },
-                                model: {
-                                  value: _vm.objData.ingredient[index].title,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.objData.ingredient[index],
-                                      "title",
-                                      $$v
-                                    )
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-3" },
+                              [
+                                _c("image-upload", {
+                                  attrs: {
+                                    type: "avatar",
+                                    title: "ingredient-sub-"
                                   },
-                                  expression: "objData.ingredient[index].title"
-                                }
-                              })
-                            ],
-                            1
-                          ),
+                                  model: {
+                                    value: _vm.objData.ingredient[index].image,
+                                    callback: function($$v) {
+                                      _vm.$set(
+                                        _vm.objData.ingredient[index],
+                                        "image",
+                                        $$v
+                                      )
+                                    },
+                                    expression:
+                                      "objData.ingredient[index].image"
+                                  }
+                                })
+                              ],
+                              1
+                            )
+                          ]),
                           _vm._v(" "),
-                          _c(
-                            "div",
-                            { staticClass: "col-3" },
-                            [
-                              _c("image-upload", {
-                                attrs: {
-                                  type: "avatar",
-                                  title: "ingredient-sub-"
-                                },
-                                model: {
-                                  value: _vm.objData.ingredient[index].image,
-                                  callback: function($$v) {
-                                    _vm.$set(
-                                      _vm.objData.ingredient[index],
-                                      "image",
-                                      $$v
-                                    )
-                                  },
-                                  expression: "objData.ingredient[index].image"
-                                }
-                              })
-                            ],
-                            1
-                          )
+                          _c("br")
                         ]),
                         _vm._v(" "),
-                        _c("br")
-                      ]),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "col-1" }, [
-                        index != 0
-                          ? _c(
-                              "a",
-                              {
-                                attrs: { href: "javascript:;" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.remoteAr(index, "ingredient")
-                                  }
-                                }
-                              },
-                              [
-                                _c("img", {
-                                  attrs: {
-                                    src: "/media/" + _vm.joke.avatar,
-                                    width: "25"
-                                  }
-                                })
-                              ]
-                            )
-                          : _vm._e()
-                      ])
-                    ])
-                  ])
-                }),
-                _vm._v(" "),
-                _c(
-                  "el-button",
-                  {
-                    attrs: { size: "small" },
-                    on: {
-                      click: function($event) {
-                        return _vm.addInput("ingredient")
-                      }
-                    }
-                  },
-                  [_vm._v("Thêm giá trị")]
-                )
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [
-                  _vm._v(
-                    "Thêm biến thể (Bạn có thể thêm biến thể nếu sản phẩm này có nhiều lựa chọn như kích cỡ hoặc màu sắc. )"
-                  )
-                ]),
-                _vm._v(" "),
-                _c(
-                  "vs-switch",
-                  {
-                    model: {
-                      value: _vm.objData.status_variant,
-                      callback: function($$v) {
-                        _vm.$set(_vm.objData, "status_variant", $$v)
-                      },
-                      expression: "objData.status_variant"
-                    }
-                  },
-                  [
-                    _c("span", { attrs: { slot: "on" }, slot: "on" }, [
-                      _vm._v("On")
-                    ]),
-                    _vm._v(" "),
-                    _c("span", { attrs: { slot: "off" }, slot: "off" }, [
-                      _vm._v("Off")
-                    ])
-                  ]
-                )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.objData.status_variant == true
-              ? _c(
-                  "div",
-                  {
-                    staticClass: "variant",
-                    staticStyle: { background: "#f6f6fb", padding: "7px" }
-                  },
-                  [
-                    _vm.VariantSku.length > 0
-                      ? _c("div", [
-                          _c(
-                            "div",
-                            [
-                              _c(
-                                "vs-table",
+                        _c("div", { staticClass: "col-1" }, [
+                          index != 0
+                            ? _c(
+                                "a",
                                 {
-                                  attrs: { data: _vm.VariantSku },
-                                  scopedSlots: _vm._u(
-                                    [
-                                      {
-                                        key: "default",
-                                        fn: function(ref) {
-                                          var data = ref.data
-                                          return _vm._l(
-                                            _vm.VariantSku,
-                                            function(tr, indextr) {
-                                              return _c(
-                                                "vs-tr",
-                                                { key: indextr },
-                                                [
-                                                  _c("vs-td", [
-                                                    _vm._v(
-                                                      "\n                            " +
-                                                        _vm._s(
-                                                          data[indextr].version
-                                                        ) +
-                                                        "\n                          "
-                                                    )
-                                                  ]),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "vs-td",
-                                                    [
-                                                      _c("vs-input", {
-                                                        staticClass: "w-100",
-                                                        attrs: {
-                                                          type: "text",
-                                                          size: "default"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            data[indextr].price,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              data[indextr],
-                                                              "price",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "data[indextr].price"
-                                                        }
-                                                      })
-                                                    ],
-                                                    1
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c(
-                                                    "vs-td",
-                                                    [
-                                                      _c("vs-input", {
-                                                        staticClass: "w-100",
-                                                        attrs: {
-                                                          type: "text",
-                                                          size: "default"
-                                                        },
-                                                        model: {
-                                                          value:
-                                                            data[indextr].qty,
-                                                          callback: function(
-                                                            $$v
-                                                          ) {
-                                                            _vm.$set(
-                                                              data[indextr],
-                                                              "qty",
-                                                              $$v
-                                                            )
-                                                          },
-                                                          expression:
-                                                            "data[indextr].qty"
-                                                        }
-                                                      })
-                                                    ],
-                                                    1
-                                                  )
-                                                ],
-                                                1
-                                              )
-                                            }
-                                          )
-                                        }
-                                      }
-                                    ],
-                                    null,
-                                    false,
-                                    924849440
-                                  )
+                                  attrs: { href: "javascript:;" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.remoteAr(index, "ingredient")
+                                    }
+                                  }
                                 },
                                 [
-                                  _c(
-                                    "template",
-                                    { slot: "thead" },
-                                    [
-                                      _c("vs-th", [
-                                        _vm._v(
-                                          "\n                          Phiên bản\n                        "
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("vs-th", [
-                                        _vm._v(
-                                          "\n                          Giá\n                        "
-                                        )
-                                      ]),
-                                      _vm._v(" "),
-                                      _c("vs-th", [
-                                        _vm._v(
-                                          "\n                          Số lượng\n                        "
-                                        )
-                                      ])
-                                    ],
-                                    1
-                                  )
-                                ],
-                                2
+                                  _c("img", {
+                                    attrs: {
+                                      src: "/media/" + _vm.joke.avatar,
+                                      width: "25"
+                                    }
+                                  })
+                                ]
                               )
-                            ],
-                            1
-                          )
+                            : _vm._e()
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.objData.status_variant == true &&
-                    _vm.VariantSku.length == 0
-                      ? _c(
-                          "div",
-                          { staticClass: "variant" },
-                          [
-                            _vm._l(_vm.variant_value, function(item, index) {
-                              return _c("div", { key: index }, [
-                                _c(
-                                  "label",
-                                  { staticClass: "label2", attrs: { for: "" } },
-                                  [_vm._v(_vm._s(item.name))]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "ul",
-                                  { staticClass: "centerx" },
-                                  _vm._l(item.value, function(itemval, key) {
-                                    return _c(
-                                      "li",
-                                      { key: key },
-                                      [
-                                        _c(
-                                          "vs-checkbox",
-                                          {
-                                            attrs: { "vs-value": itemval.name },
-                                            on: {
-                                              change: function($event) {
-                                                return _vm.getValuebuildSkua(
-                                                  itemval.name,
-                                                  item.name
-                                                )
-                                              }
-                                            }
-                                          },
-                                          [_vm._v(_vm._s(itemval.name))]
-                                        )
-                                      ],
-                                      1
-                                    )
-                                  }),
-                                  0
-                                )
-                              ])
-                            }),
-                            _vm._v(" "),
+                      ])
+                    ])
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "el-button",
+                    {
+                      attrs: { size: "small" },
+                      on: {
+                        click: function($event) {
+                          return _vm.addInput("ingredient")
+                        }
+                      }
+                    },
+                    [_vm._v("Thêm giá trị")]
+                  )
+                ],
+                2
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [
+                    _vm._v(
+                      "Thêm biến thể (Bạn có thể thêm biến thể nếu sản phẩm này có nhiều lựa chọn như kích cỡ hoặc màu sắc. )"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "vs-switch",
+                    {
+                      model: {
+                        value: _vm.objData.status_variant,
+                        callback: function($$v) {
+                          _vm.$set(_vm.objData, "status_variant", $$v)
+                        },
+                        expression: "objData.status_variant"
+                      }
+                    },
+                    [
+                      _c("span", { attrs: { slot: "on" }, slot: "on" }, [
+                        _vm._v("On")
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { attrs: { slot: "off" }, slot: "off" }, [
+                        _vm._v("Off")
+                      ])
+                    ]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.objData.status_variant == true
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "variant",
+                      staticStyle: { background: "#f6f6fb", padding: "7px" }
+                    },
+                    [
+                      _vm.VariantSku.length > 0
+                        ? _c("div", [
                             _c(
                               "div",
                               [
                                 _c(
                                   "vs-table",
                                   {
-                                    attrs: { data: _vm.objData.lungtung },
+                                    attrs: { data: _vm.VariantSku },
                                     scopedSlots: _vm._u(
                                       [
                                         {
@@ -329908,7 +330169,7 @@ var render = function() {
                                           fn: function(ref) {
                                             var data = ref.data
                                             return _vm._l(
-                                              _vm.objData.lungtung,
+                                              _vm.VariantSku,
                                               function(tr, indextr) {
                                                 return _c(
                                                   "vs-tr",
@@ -329993,7 +330254,7 @@ var render = function() {
                                       ],
                                       null,
                                       false,
-                                      641889243
+                                      924849440
                                     )
                                   },
                                   [
@@ -330027,66 +330288,258 @@ var render = function() {
                               ],
                               1
                             )
-                          ],
-                          2
-                        )
-                      : _vm._e()
-                  ]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "form-group" },
-              [
-                _c("label", [_vm._v("Giá Sản phẩm")]),
-                _vm._v(" "),
-                _c("vs-input", {
-                  staticClass: "w-100",
-                  attrs: {
-                    type: "number",
-                    size: "default",
-                    icon: "all_inclusive"
-                  },
-                  model: {
-                    value: _vm.objData.price,
-                    callback: function($$v) {
-                      _vm.$set(_vm.objData, "price", $$v)
+                          ])
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.objData.status_variant == true &&
+                      _vm.VariantSku.length == 0
+                        ? _c(
+                            "div",
+                            { staticClass: "variant" },
+                            [
+                              _vm._l(_vm.variant_value, function(item, index) {
+                                return _c("div", { key: index }, [
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "label2",
+                                      attrs: { for: "" }
+                                    },
+                                    [_vm._v(_vm._s(item.name))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "ul",
+                                    { staticClass: "centerx" },
+                                    _vm._l(item.value, function(itemval, key) {
+                                      return _c(
+                                        "li",
+                                        { key: key },
+                                        [
+                                          _c(
+                                            "vs-checkbox",
+                                            {
+                                              attrs: {
+                                                "vs-value": itemval.name
+                                              },
+                                              on: {
+                                                change: function($event) {
+                                                  return _vm.getValuebuildSkua(
+                                                    itemval.name,
+                                                    item.name
+                                                  )
+                                                }
+                                              }
+                                            },
+                                            [_vm._v(_vm._s(itemval.name))]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    }),
+                                    0
+                                  )
+                                ])
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                [
+                                  _c(
+                                    "vs-table",
+                                    {
+                                      attrs: { data: _vm.objData.lungtung },
+                                      scopedSlots: _vm._u(
+                                        [
+                                          {
+                                            key: "default",
+                                            fn: function(ref) {
+                                              var data = ref.data
+                                              return _vm._l(
+                                                _vm.objData.lungtung,
+                                                function(tr, indextr) {
+                                                  return _c(
+                                                    "vs-tr",
+                                                    { key: indextr },
+                                                    [
+                                                      _c("vs-td", [
+                                                        _vm._v(
+                                                          "\n                            " +
+                                                            _vm._s(
+                                                              data[indextr]
+                                                                .version
+                                                            ) +
+                                                            "\n                          "
+                                                        )
+                                                      ]),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "vs-td",
+                                                        [
+                                                          _c("vs-input", {
+                                                            staticClass:
+                                                              "w-100",
+                                                            attrs: {
+                                                              type: "text",
+                                                              size: "default"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                data[indextr]
+                                                                  .price,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  data[indextr],
+                                                                  "price",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "data[indextr].price"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      ),
+                                                      _vm._v(" "),
+                                                      _c(
+                                                        "vs-td",
+                                                        [
+                                                          _c("vs-input", {
+                                                            staticClass:
+                                                              "w-100",
+                                                            attrs: {
+                                                              type: "text",
+                                                              size: "default"
+                                                            },
+                                                            model: {
+                                                              value:
+                                                                data[indextr]
+                                                                  .qty,
+                                                              callback: function(
+                                                                $$v
+                                                              ) {
+                                                                _vm.$set(
+                                                                  data[indextr],
+                                                                  "qty",
+                                                                  $$v
+                                                                )
+                                                              },
+                                                              expression:
+                                                                "data[indextr].qty"
+                                                            }
+                                                          })
+                                                        ],
+                                                        1
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                }
+                                              )
+                                            }
+                                          }
+                                        ],
+                                        null,
+                                        false,
+                                        641889243
+                                      )
+                                    },
+                                    [
+                                      _c(
+                                        "template",
+                                        { slot: "thead" },
+                                        [
+                                          _c("vs-th", [
+                                            _vm._v(
+                                              "\n                          Phiên bản\n                        "
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("vs-th", [
+                                            _vm._v(
+                                              "\n                          Giá\n                        "
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("vs-th", [
+                                            _vm._v(
+                                              "\n                          Số lượng\n                        "
+                                            )
+                                          ])
+                                        ],
+                                        1
+                                      )
+                                    ],
+                                    2
+                                  )
+                                ],
+                                1
+                              )
+                            ],
+                            2
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Giá Sản phẩm")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "number",
+                      size: "default",
+                      icon: "all_inclusive"
                     },
-                    expression: "objData.price"
-                  }
-                })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _vm.objData.status_variant == false
-              ? _c(
-                  "div",
-                  { staticClass: "form-group" },
-                  [
-                    _c("label", [_vm._v("Giá bán ra")]),
-                    _vm._v(" "),
-                    _c("vs-input", {
-                      staticClass: "w-100",
-                      attrs: {
-                        type: "number",
-                        size: "default",
-                        icon: "all_inclusive"
+                    model: {
+                      value: _vm.objData.price,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "price", $$v)
                       },
-                      model: {
-                        value: _vm.objData.discount,
-                        callback: function($$v) {
-                          _vm.$set(_vm.objData, "discount", $$v)
+                      expression: "objData.price"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.objData.status_variant == false
+                ? _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", [_vm._v("Giá bán ra")]),
+                      _vm._v(" "),
+                      _c("vs-input", {
+                        staticClass: "w-100",
+                        attrs: {
+                          type: "number",
+                          size: "default",
+                          icon: "all_inclusive"
                         },
-                        expression: "objData.discount"
-                      }
-                    })
-                  ],
-                  1
-                )
-              : _vm._e()
-          ])
+                        model: {
+                          value: _vm.objData.discount,
+                          callback: function($$v) {
+                            _vm.$set(_vm.objData, "discount", $$v)
+                          },
+                          expression: "objData.discount"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e()
+            ],
+            1
+          )
         ])
       ]),
       _vm._v(" "),
@@ -340995,6 +341448,21 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
+              _c("seo-fields", {
+                attrs: {
+                  title: _vm.objData.seo_title,
+                  description: _vm.objData.meta_description
+                },
+                on: {
+                  "update:title": function($event) {
+                    return _vm.$set(_vm.objData, "seo_title", $event)
+                  },
+                  "update:description": function($event) {
+                    return _vm.$set(_vm.objData, "meta_description", $event)
+                  }
+                }
+              }),
+              _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "form-group" },
@@ -341136,6 +341604,56 @@ var render = function() {
                         _vm.$set(_vm.objData, "google", $$v)
                       },
                       expression: "objData.google"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Google Analytics 4")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "G-XXXXXXXXXX"
+                    },
+                    model: {
+                      value: _vm.objData.ga4_id,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "ga4_id", $$v)
+                      },
+                      expression: "objData.ga4_id"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Google Tag Manager")]),
+                  _vm._v(" "),
+                  _c("vs-input", {
+                    staticClass: "w-100",
+                    attrs: {
+                      type: "text",
+                      size: "default",
+                      placeholder: "GTM-XXXXXXX"
+                    },
+                    model: {
+                      value: _vm.objData.gtm_id,
+                      callback: function($$v) {
+                        _vm.$set(_vm.objData, "gtm_id", $$v)
+                      },
+                      expression: "objData.gtm_id"
                     }
                   })
                 ],
@@ -382606,6 +383124,7 @@ var map = {
 	"./SidebarPlugin/SidebarItem.vue": "./resources/js/components/SidebarPlugin/SidebarItem.vue",
 	"./_common/cropper.vue": "./resources/js/components/_common/cropper.vue",
 	"./_common/modal.vue": "./resources/js/components/_common/modal.vue",
+	"./_common/seo_fields.vue": "./resources/js/components/_common/seo_fields.vue",
 	"./_common/tinymce.vue": "./resources/js/components/_common/tinymce.vue",
 	"./_common/upload_image_multi.vue": "./resources/js/components/_common/upload_image_multi.vue",
 	"./auth/login.vue": "./resources/js/components/auth/login.vue",
@@ -383447,6 +383966,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_modal_vue_vue_type_template_id_ea6041a6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_modal_vue_vue_type_template_id_ea6041a6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/_common/seo_fields.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/_common/seo_fields.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _seo_fields_vue_vue_type_template_id_e49beaea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./seo_fields.vue?vue&type=template&id=e49beaea& */ "./resources/js/components/_common/seo_fields.vue?vue&type=template&id=e49beaea&");
+/* harmony import */ var _seo_fields_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./seo_fields.vue?vue&type=script&lang=js& */ "./resources/js/components/_common/seo_fields.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _seo_fields_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _seo_fields_vue_vue_type_template_id_e49beaea___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _seo_fields_vue_vue_type_template_id_e49beaea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/_common/seo_fields.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/_common/seo_fields.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/_common/seo_fields.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_fields_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./seo_fields.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/_common/seo_fields.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_fields_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/_common/seo_fields.vue?vue&type=template&id=e49beaea&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/_common/seo_fields.vue?vue&type=template&id=e49beaea& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_fields_vue_vue_type_template_id_e49beaea___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./seo_fields.vue?vue&type=template&id=e49beaea& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/_common/seo_fields.vue?vue&type=template&id=e49beaea&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_fields_vue_vue_type_template_id_e49beaea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_fields_vue_vue_type_template_id_e49beaea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -396168,8 +396756,8 @@ var store = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\entdecketravel\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\entdecketravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\entdecketvietnam\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\entdecketvietnam\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

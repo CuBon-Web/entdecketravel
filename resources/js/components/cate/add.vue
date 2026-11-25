@@ -33,6 +33,7 @@
                       </div>
                     </div>
                 </div>
+                <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
                 <div class="form-group">
                   <label>Ảnh bìa</label>
                   <image-upload
@@ -80,6 +81,7 @@
 <script>
 import { mapActions } from "vuex";
 import TinyMce from "../_common/tinymce";
+import SeoFields from "../_common/seo_fields";
 export default {
   data() {
     return {
@@ -97,6 +99,8 @@ export default {
         avatar: "",
         imagehome: "",
         status: 1,
+        seo_title: "",
+        meta_description: "",
       },
       lang:[],
       img: "",
@@ -105,6 +109,7 @@ export default {
   },
 components: {
     TinyMce,
+    SeoFields,
   },
   methods: {
     ...mapActions(["saveCategory","listLanguage", "loadings"]),

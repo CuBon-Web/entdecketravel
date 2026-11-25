@@ -1,13 +1,36 @@
 <!-- https://creativelayers.net/themes/gotrip-html/home-7.html -->
 <!DOCTYPE html>
-<html lang="vi" data-x="html" data-x-toggle="html-overflow-hidden">
+<html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
    <head>
       @php
-         $seoTitle = strip_tags(trim($__env->yieldContent('title', config('app.name'))));
-         $seoDescriptionRaw = trim($__env->yieldContent('description', config('app.name')));
+         $ga4Id = trackingId($setting->ga4_id ?? '', 'ga4');
+         $gtmId = trackingId($setting->gtm_id ?? '', 'gtm');
+      @endphp
+      @if ($gtmId)
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','{{ $gtmId }}');</script>
+      @endif
+      @if ($ga4Id)
+      <script async src="https://www.googletagmanager.com/gtag/js?id={{ $ga4Id }}"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ $ga4Id }}');
+      </script>
+      @endif
+      @php
+         $decodeSeo = function ($value) {
+            return html_entity_decode(trim((string) $value), ENT_QUOTES | ENT_HTML5, 'UTF-8');
+         };
+         $seoTitle = strip_tags($decodeSeo($__env->yieldContent('title', config('app.name'))));
+         $seoDescriptionRaw = $decodeSeo($__env->yieldContent('description', config('app.name')));
          $seoDescription = \Illuminate\Support\Str::limit(strip_tags($seoDescriptionRaw), 160, '');
-         $seoImage = trim($__env->yieldContent('image', url('' . $setting->favicon)));
-         $seoCanonical = trim($__env->yieldContent('canonical', url()->current()));
+         $seoImage = $decodeSeo($__env->yieldContent('image', url('' . $setting->favicon)));
+         $seoCanonical = $decodeSeo($__env->yieldContent('canonical', url()->current()));
          $seoRobots = trim($__env->yieldContent('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'));
       @endphp
       <meta charset="UTF-8" />
@@ -50,6 +73,7 @@
       {!! json_encode([
          '@context' => 'https://schema.org',
          '@type' => 'Organization',
+         '@id' => rtrim(url('/'), '/') . '/#organization',
          'name' => config('app.name'),
          'url' => url('/'),
          'logo' => url('' . $setting->logo),
@@ -105,6 +129,9 @@
       </style>
    </head>
    <body>
+      @if ($gtmId)
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $gtmId }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      @endif
       <!-- LOADING AREA START ===== -->
       <div class="loading-area">
           <div class="loading-box"></div>

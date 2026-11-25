@@ -23,6 +23,7 @@ class Services extends Model
              ])->first();
             
             if ($query) {
+                $oldPath = ($query->slug && $query->cate_slug) ? \App\Services\UrlRedirectService::serviceDetailPath($query->cate_slug, $query->slug) : '';
                 $query->name = json_encode($request->name);
                 $query->slug = to_slug($request->name[0]['content']);
                 $query->content = json_encode($request->content);
@@ -33,6 +34,8 @@ class Services extends Model
                 $query->home_status = $request->home_status;
                 $query->cate_id = $request->cate_id;
                 $query->cate_slug = $cate->slug;
+                $newPath = ($query->slug && $query->cate_slug) ? \App\Services\UrlRedirectService::serviceDetailPath($query->cate_slug, $query->slug) : '';
+                \App\Services\UrlRedirectService::remember($oldPath, $newPath);
                 $query->save();
             }else{
                 $query = new Services();

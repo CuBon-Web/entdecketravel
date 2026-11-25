@@ -59,6 +59,7 @@
                     </div>
                 </div>
               </div>
+              <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
               <div class="form-group">
                 <label>Ảnh đại diện</label>
                 <image-upload v-model="objData.image" type="avatar" :title="'img'"></image-upload>
@@ -158,6 +159,7 @@
 <script>
 import { mapActions } from "vuex";
 import TinyMce from "../_common/tinymce";
+import SeoFields from "../_common/seo_fields";
 import { required } from "vuelidate/lib/validators";
 export default {
   name: "editblog",
@@ -200,12 +202,15 @@ export default {
         type_cate:"",
         type_news:"",
         cate_product: 0,
+        seo_title: "",
+        meta_description: "",
       },
       lang:[]
     };
   },
   components: {
-    TinyMce
+    TinyMce,
+    SeoFields
   },
   computed: {},
   watch: {},

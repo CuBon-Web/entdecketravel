@@ -229,3 +229,152 @@ if (!function_exists('resizeImage')) {
         }
     }
 }
+
+if (!function_exists('assignSeoFields')) {
+    function assignSeoFields($model, $request)
+    {
+        $model->seo_title = trim((string) $request->input('seo_title', '')) ?: null;
+        $model->meta_description = trim((string) $request->input('meta_description', '')) ?: null;
+    }
+}
+
+if (!function_exists('fillSlug')) {
+    function fillSlug($model, $source)
+    {
+        if (!is_string($model->slug) || trim($model->slug) === '') {
+            $model->slug = to_slug($source);
+        }
+    }
+}
+
+if (!function_exists('seoTitle')) {
+    function seoTitle($seoTitle, $fallback = '')
+    {
+        $seo = trim(strip_tags((string) $seoTitle));
+        if ($seo !== '') {
+            return $seo;
+        }
+        return trim(strip_tags((string) languageName($fallback)));
+    }
+}
+
+if (!function_exists('seoDescription')) {
+    function seoDescription($metaDescription, $fallback = '')
+    {
+        $meta = trim(preg_replace('/\s+/', ' ', strip_tags((string) $metaDescription)));
+        if ($meta !== '') {
+            return $meta;
+        }
+        return trim(preg_replace('/\s+/', ' ', strip_tags((string) languageName($fallback))));
+    }
+}
+
+if (!function_exists('tourMoneyRaw')) {
+    function tourMoneyRaw($raw)
+    {
+        if ($raw === null || $raw === '') {
+            return 0.0;
+        }
+        if (is_numeric($raw)) {
+            return (float) $raw;
+        }
+        $digits = preg_replace('/[^\d.]/', '', (string) $raw);
+        return ($digits === '' || $digits === '.') ? 0.0 : (float) $digits;
+    }
+}
+
+if (!function_exists('tourMoneyForLang')) {
+    function tourMoneyForLang($value, $code)
+    {
+        if (is_numeric($value) || $value === null || $value === '') {
+            return null;
+        }
+        if (is_string($value)) {
+            $decoded = json_decode($value);
+        } elseif (is_array($value) || is_object($value)) {
+            $decoded = $value;
+        } else {
+            return null;
+        }
+        if (!is_iterable($decoded)) {
+            return null;
+        }
+        foreach ($decoded as $item) {
+            $lang = is_array($item) ? ($item['lang_code'] ?? null) : ($item->lang_code ?? null);
+            if ($lang !== $code) {
+                continue;
+            }
+            $content = is_array($item) ? ($item['content'] ?? null) : ($item->content ?? null);
+            if ($content === null || $content === '') {
+                return null;
+            }
+            return tourMoneyRaw($content);
+        }
+        return null;
+    }
+}
+
+if (!function_exists('tourMoney')) {
+    function tourMoney($value)
+    {
+        $usd = tourMoneyForLang($value, 'en-US');
+        if ($usd !== null) {
+            return $usd;
+        }
+        return tourMoneyRaw(languageName($value));
+    }
+}
+
+if (!function_exists('isGolfTour')) {
+    function isGolfTour($item)
+    {
+        $parts = [];
+        foreach (['slug', 'cate_slug', 'type_slug', 'type_two_slug'] as $field) {
+            $value = data_get($item, $field);
+            if (is_string($value) && $value !== '') {
+                $parts[] = $value;
+            }
+        }
+        foreach (['name', 'tags'] as $field) {
+            $value = data_get($item, $field);
+            if (is_string($value) && $value !== '') {
+                $parts[] = $value;
+            } elseif (is_array($value) || is_object($value)) {
+                $parts[] = json_encode($value);
+            }
+        }
+        $cateName = data_get($item, 'cate.name');
+        if (is_string($cateName) && $cateName !== '') {
+            $parts[] = $cateName;
+        } elseif (is_array($cateName) || is_object($cateName)) {
+            $parts[] = json_encode($cateName);
+        }
+        return (bool) preg_match('/golf/i', implode(' ', $parts));
+    }
+}
+
+if (!function_exists('trackingId')) {
+    function trackingId($value, $kind)
+    {
+        $value = strtoupper(trim(html_entity_decode((string) $value, ENT_QUOTES | ENT_HTML5, 'UTF-8')));
+        $pattern = $kind === 'gtm' ? '/GTM-[A-Z0-9]+/' : '/(?<![A-Z0-9])G-[A-Z0-9]+/';
+        if ($value !== '' && preg_match($pattern, $value, $match)) {
+            return $match[0];
+        }
+        return null;
+    }
+}
+
+if (!function_exists('formatTourPrice')) {
+    function formatTourPrice($item)
+    {
+        $amount = tourMoney(data_get($item, 'price'));
+        if ($amount > 0) {
+            return 'US$ ' . number_format($amount) . ' / person';
+        }
+        if (isGolfTour($item)) {
+            return 'Price on request';
+        }
+        return 'Contact Us';
+    }
+}

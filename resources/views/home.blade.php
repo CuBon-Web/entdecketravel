@@ -1,9 +1,9 @@
 @extends('layouts.main.master')
 @section('title')
-    {{ $setting->company }}
+    {{ seoTitle($setting->seo_title, $setting->company) }}
 @endsection
 @section('description')
-    {{ $setting->webname }}
+    {{ seoDescription($setting->meta_description, $setting->webname) }}
 @endsection
 @section('image')
     {{ url('' . $banner[0]->image) }}
@@ -13,9 +13,9 @@
 {!! json_encode([
    '@context' => 'https://schema.org',
    '@type' => 'WebPage',
-   'name' => $setting->company,
+   'name' => seoTitle($setting->seo_title, $setting->company),
    'url' => url()->current(),
-   'description' => $setting->webname,
+   'description' => seoDescription($setting->meta_description, $setting->webname),
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
 </script>
 @endsection

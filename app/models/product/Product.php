@@ -48,8 +48,10 @@ class Product extends Model
             if ($id) {
                 $query = Product::find($id);
                 if($query){
+                    $oldPath = $query->slug ? \App\Services\UrlRedirectService::productPath($query->cate_slug, $query->type_slug, $query->slug) : '';
                     $query->name = ($request->name);
-                    $query->slug = to_slug($request->name);
+                    fillSlug($query, $request->name);
+                    assignSeoFields($query, $request);
                     $query->price = json_encode($request->price);
                     $query->price_chil = json_encode($request->price_chil);
                     $query->price_includes = json_encode($this->priceNoteList($request->price_includes));
@@ -80,6 +82,8 @@ class Product extends Model
                     $query->home_status = $request->home_status;
                     $query->cate_build_pc = $request->cate_build_pc;
                     $query->service_id = $request->service_id;
+                    $newPath = $query->slug ? \App\Services\UrlRedirectService::productPath($query->cate_slug, $query->type_slug, $query->slug) : '';
+                    \App\Services\UrlRedirectService::remember($oldPath, $newPath);
                     $query->save();
                     if($request->status_variant == 1){
                         // dd($request->lungtung);
@@ -99,7 +103,8 @@ class Product extends Model
             }else{
                 $query = new Product();
                 $query->name = ($request->name);
-                $query->slug = to_slug($request->name);
+                fillSlug($query, $request->name);
+                assignSeoFields($query, $request);
                 $query->price = json_encode($request->price);
                 $query->price_chil = json_encode($request->price_chil);
                 $query->price_includes = json_encode($this->priceNoteList($request->price_includes));

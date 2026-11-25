@@ -29,8 +29,15 @@ class Tags extends Model
                 'id' => $id
              ])->first();
             if ($query) {
+                $oldSlug = $query->slug;
                 $query->name = $request->name;
                 $query->slug = to_slug($request->name);
+                if ($oldSlug && $oldSlug !== $query->slug) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::tagPath($oldSlug),
+                        \App\Services\UrlRedirectService::tagPath($query->slug)
+                    );
+                }
                 $query->cate_tag_id = $request->cate_tag_id;
                 $query->cate_tag_slug = $cat ? $cat->slug : '';
                 $query->cate_product_id = 0;

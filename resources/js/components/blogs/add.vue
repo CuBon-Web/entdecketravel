@@ -85,6 +85,7 @@
                 </div>
               </div>
             </div>
+            <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
             <div class="form-group">
               <label>Ảnh đại diện</label>
               <image-upload
@@ -185,6 +186,7 @@
 <script>
 import { mapActions } from "vuex";
 import TinyMce from "../_common/tinymce";
+import SeoFields from "../_common/seo_fields";
 export default {
   name: "product",
   data() {
@@ -220,6 +222,8 @@ export default {
         ],
         cate_product:0,
         status: 1,
+        seo_title: "",
+        meta_description: "",
         image: "",
         author: "",
         category: "",
@@ -231,6 +235,7 @@ export default {
   },
   components: {
     TinyMce,
+    SeoFields,
   },
   computed: {},
   watch: {},

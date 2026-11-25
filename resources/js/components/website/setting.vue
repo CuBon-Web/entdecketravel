@@ -23,6 +23,7 @@
                     v-model="objData.webname"
                   />
                 </div>
+                <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
                 <div class="form-group">
                   <label>Văn phòng đại diện</label>
                   <vs-input
@@ -94,6 +95,26 @@
                     size="default"
                     class="w-100"
                     v-model="objData.google"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Google Analytics 4</label>
+                  <vs-input
+                    type="text"
+                    size="default"
+                    class="w-100"
+                    placeholder="G-XXXXXXXXXX"
+                    v-model="objData.ga4_id"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Google Tag Manager</label>
+                  <vs-input
+                    type="text"
+                    size="default"
+                    class="w-100"
+                    placeholder="GTM-XXXXXXX"
+                    v-model="objData.gtm_id"
                   />
                 </div>
                 
@@ -212,6 +233,7 @@ import { mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
 import ImageMulti from "../_common/upload_image_multi";
 import TinyMce from "../_common/tinymce";
+import SeoFields from "../_common/seo_fields";
 export default {
   name: "setting",
   data() {
@@ -223,6 +245,8 @@ export default {
         {
             webname : "",
             company : "",
+            seo_title : "",
+            meta_description : "",
             address1: "",
             address2 : "",
             phone1 : "",
@@ -231,6 +255,8 @@ export default {
             email : "",
             facebook : "",
             google : "",
+            ga4_id : "",
+            gtm_id : "",
             GA : "",
             fbPixel : "",
             iframe_map : "",
@@ -258,7 +284,7 @@ export default {
     };
   },
   components: {
-    TinyMce,ImageMulti
+    TinyMce,ImageMulti,SeoFields
   },
   computed: {},
   watch: {},

@@ -37,6 +37,7 @@
                     </div>
                 </div>
               </div>
+              <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
               <div class="form-group">
                 <label>Ảnh sản phẩm</label>
                 <ImageMulti v-model="objData.images" :title="'san-pham'"/>
@@ -373,6 +374,7 @@
 import { mapActions } from "vuex";
 import TinyMce from "../_common/tinymce";
 import ImageMulti from "../_common/upload_image_multi";
+import SeoFields from "../_common/seo_fields";
 // import InputTag from 'vue-input-tag'
 export default {
   name: "product",
@@ -398,6 +400,8 @@ export default {
         lang: "",
         variant:[],
         name: "",
+        seo_title: "",
+        meta_description: "",
         size: [
           {
             title: "",
@@ -453,7 +457,8 @@ export default {
   },
   components: {
     TinyMce,
-    ImageMulti
+    ImageMulti,
+    SeoFields
   },
   computed: {},
   watch: {

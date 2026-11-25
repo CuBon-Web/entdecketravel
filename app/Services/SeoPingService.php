@@ -8,7 +8,7 @@ class SeoPingService
 {
     public static function pingSitemap()
     {
-        $sitemapUrl = url('/sitemap.xml');
+        $sitemapUrl = self::httpsUrl(url('/sitemap.xml'));
 
         $endpoints = [
             'google' => 'https://www.google.com/ping?sitemap=' . urlencode($sitemapUrl),
@@ -18,6 +18,22 @@ class SeoPingService
         foreach ($endpoints as $engine => $endpoint) {
             self::fireAndForgetGet($endpoint, $engine);
         }
+    }
+
+    private static function httpsUrl($url)
+    {
+        $host = strtolower((string) parse_url($url, PHP_URL_HOST));
+        $local = $host === ''
+            || $host === 'localhost'
+            || $host === '127.0.0.1'
+            || substr($host, -5) === '.test'
+            || substr($host, -6) === '.local';
+
+        if ($local) {
+            return $url;
+        }
+
+        return preg_replace('#^http://#i', 'https://', (string) $url);
     }
 
     private static function fireAndForgetGet($url, $engine)

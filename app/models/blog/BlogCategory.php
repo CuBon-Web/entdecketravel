@@ -30,18 +30,28 @@ class BlogCategory extends Model
                 // if(file_exists( public_path().$file ) ){
                 //     \File::delete($filename);
                 // }
+                $oldSlug = $query->slug;
                 $query->name = json_encode($request->name);
                 $query->path = $request->path;
-                $query->slug = to_slug($request->name[0]['content']);
+                fillSlug($query, $request->name[0]['content']);
+                assignSeoFields($query, $request);
                 $query->status = $request->status;
                 $query->avatar = $request->avatar;
+                if ($oldSlug && $oldSlug !== $query->slug) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::blogCategoryPath($oldSlug),
+                        \App\Services\UrlRedirectService::blogCategoryPath($query->slug)
+                    );
+                    \App\models\blog\Blog::where('category', $oldSlug)->update(['category' => $query->slug]);
+                }
                 $query->save();
             }else{
                 $query = new BlogCategory();
                 $query->name = json_encode($request->name);
                 $query->path = $request->path;
                 $query->status = $request->status;
-                $query->slug = to_slug($request->name[0]['content']);
+                fillSlug($query, $request->name[0]['content']);
+                assignSeoFields($query, $request);
                 $query->avatar = $request->avatar;
                 $query->save();
             }
@@ -50,7 +60,8 @@ class BlogCategory extends Model
                 $query = new BlogCategory();
                 $query->name = json_encode($request->name);
                 $query->path = $request->path;
-                $query->slug = to_slug($request->name[0]['content']);
+                fillSlug($query, $request->name[0]['content']);
+                assignSeoFields($query, $request);
                 $query->status = $request->status;
                 $query->avatar = $request->avatar;
                 $query->save();

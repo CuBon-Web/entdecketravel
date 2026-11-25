@@ -53,7 +53,12 @@ if (isset($tagcateContext) && $tagcateContext && $tagcateContext->tags && $tagca
            <div class="trv-tour-rating">
                <span class="trv-tour-review-count">Price</span>
                <div class="trv-review-rating">
-                   <i>Contact Us</i>
+                   @php $tourPriceLabel = formatTourPrice($pro); @endphp
+                   @if (\Illuminate\Support\Str::endsWith($tourPriceLabel, ' / person'))
+                       <i class="tour-card-price">{{ \Illuminate\Support\Str::beforeLast($tourPriceLabel, ' / person') }}<span> / person</span></i>
+                   @else
+                       <i>{{ $tourPriceLabel }}</i>
+                   @endif
                </div>
            </div>
        </div>

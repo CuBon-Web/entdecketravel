@@ -25,6 +25,7 @@ class SettingController extends Controller
         
 	    	$setting->webname = $request->webname;
 	    	$setting->company = $request->company;
+	    	assignSeoFields($setting, $request);
 	    	$setting->address1 = $request->address1;
 	    	$setting->address2 = $request->address2;
 	    	$setting->phone1 = $request->phone1;
@@ -33,6 +34,8 @@ class SettingController extends Controller
             $setting->email  = $request->email;
 	    	$setting->facebook = $request->facebook;
             $setting->google   = $request->google;
+            $setting->ga4_id = trackingId($request->ga4_id, 'ga4');
+            $setting->gtm_id = trackingId($request->gtm_id, 'gtm');
             $setting->GA = $request->GA;
             $setting->fbPixel  = $request->fbPixel;
 	    	$setting->iframe_map  = $request->iframe_map;
@@ -53,6 +56,7 @@ class SettingController extends Controller
         	$setting = Setting::find(1);
 	    	$setting->webname = $request->webname;
 	    	$setting->company = $request->company;
+	    	assignSeoFields($setting, $request);
 	    	$setting->address1 = $request->address1;
 	    	$setting->address2 = $request->address2;
 	    	$setting->phone1 = $request->phone1;
@@ -61,6 +65,8 @@ class SettingController extends Controller
             $setting->email  = $request->email;
 	    	$setting->facebook = $request->facebook;
             $setting->google   = $request->google;
+            $setting->ga4_id = trackingId($request->ga4_id, 'ga4');
+            $setting->gtm_id = trackingId($request->gtm_id, 'gtm');
             $setting->GA = $request->GA;
             $setting->fbPixel  = $request->fbPixel;
 	    	$setting->iframe_map  = $request->iframe_map;

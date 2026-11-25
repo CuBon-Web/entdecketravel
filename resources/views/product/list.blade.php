@@ -1,9 +1,9 @@
 @extends('layouts.main.master')
 @section('title')
-    {{ $title ?? config('app.name') }}
+    {{ seoTitle($seo_title ?? '', $title ?? config('app.name')) }}
 @endsection
 @section('description')
-    Danh sách {{ $title ?? config('app.name') }}
+    {{ seoDescription($meta_description ?? '', 'Danh sách ' . ($title ?? config('app.name'))) }}
 @endsection
 @section('image')
     {{ isset($banner[0]) ? url('' . $banner[0]->image) : url('' . $setting->logo) }}

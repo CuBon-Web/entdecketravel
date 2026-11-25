@@ -5,6 +5,42 @@ FAG | {{$setting->company}}
 @section('description')
 FAG | {{$setting->webname}}
 @endsection
+@section('schema')
+@php
+    $faqDetails = collect();
+    foreach (json_decode($setting->footer_content ?: '[]') ?? [] as $item) {
+        foreach ($item->fag_detail ?? [] as $faqItem) {
+            $question = trim(strip_tags((string) ($faqItem->name ?? '')));
+            $answer = trim(preg_replace('/\s+/', ' ', strip_tags((string) ($faqItem->content ?? ''))));
+            if ($question === '' || $answer === '') {
+                continue;
+            }
+            $faqItem->schema_question = $question;
+            $faqItem->schema_answer = $answer;
+            $faqDetails->push($faqItem);
+        }
+    }
+    $faqSchema = [
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'mainEntity' => $faqDetails->map(function ($faq) {
+            return [
+                '@type' => 'Question',
+                'name' => $faq->schema_question,
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $faq->schema_answer,
+                ],
+            ];
+        })->values()->all(),
+    ];
+@endphp
+@if ($faqDetails->isNotEmpty())
+<script type="application/ld+json">
+{!! json_encode($faqSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+</script>
+@endif
+@endsection
 @section('css')
 @endsection
 @section('js')
@@ -50,12 +86,6 @@ FAG | {{$setting->webname}}
                   </div>
               </div>
               @php
-                  $faqDetails = collect();
-                  foreach (json_decode($setting->footer_content) ?? [] as $item) {
-                      foreach ($item->fag_detail ?? [] as $faqItem) {
-                          $faqDetails->push($faqItem);
-                      }
-                  }
                   $faqColumns = $faqDetails->chunk((int) ceil(max($faqDetails->count(), 1) / 2));
               @endphp
               @foreach ($faqColumns as $colIndex => $faqs)

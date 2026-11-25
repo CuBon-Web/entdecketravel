@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\models\PageContent;
 use App\Services\SimpleCaptchaService;
+use App\Services\UrlRedirectService;
 use Illuminate\Support\Facades\Validator;
 class ProductController extends Controller
 {
@@ -102,7 +103,7 @@ class ProductController extends Controller
     public function allProduct(Request $request)
     {
         $product = Product::where('status',1)
-            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','status_variant','variant','hang_muc','origin','thickness','description');
+            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','status_variant','variant','hang_muc','origin','thickness','description','tags');
         $data['list'] = $this->applyListFilters($request, $product)->paginate(12)->appends($request->query());
         $data['title'] = "All Tour";
         $data['content'] = 'none';
@@ -248,14 +249,14 @@ class ProductController extends Controller
     public function flashSale()  {
         $data['list'] = Product::where(['status'=>1,'discountStatus'=>1])
         ->orderBy('id','DESC')
-        ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant')
+        ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','tags')
         ->paginate(20);
         return view('product.flash_sale',$data);
     }
     public function allListCate($danhmuc, Request $request)
     {
         $product = Product::where('status', 1)
-            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness');
+            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness','tags');
 
         // Default on category page: keep current category unless user explicitly submitted cate_filter in URL/form.
         if (!$request->has('cate_filter')) {
@@ -263,10 +264,12 @@ class ProductController extends Controller
         }
 
         $data['list'] = $this->applyListFilters($request, $product)->paginate(12)->appends($request->query());
-        $data['cateno'] = Category::where('slug',$danhmuc)->first(['id','name','avatar','content','slug']);
+        $data['cateno'] = Category::where('slug',$danhmuc)->first(['id','name','avatar','content','slug','seo_title','meta_description']);
         
         $data['bannerPage'] = $data['cateno']->avatar ?? '';
         $data['title'] = languageName($data['cateno']->name);
+        $data['seo_title'] = $data['cateno']->seo_title ?? '';
+        $data['meta_description'] = $data['cateno']->meta_description ?? '';
         $data['content'] = $data['cateno']->content;
         $data['cate_slug'] = $data['cateno']->slug;
         $data['type_slug'] = '';
@@ -276,7 +279,7 @@ class ProductController extends Controller
     }
     public function allListType($danhmuc,$loaidanhmuc, Request $request){
         $product = Product::where(['status'=>1,'cate_slug'=>$danhmuc,'type_slug'=>$loaidanhmuc])
-            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness');
+            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness','tags');
         $data['list'] = $this->applyListFilters($request, $product)->paginate(20)->appends($request->query());
         $data['type'] = TypeProduct::where('slug',$loaidanhmuc)->first(['id','name','cate_id','content','slug']);
         $cate_id = $data['type']->cate_id;
@@ -293,7 +296,7 @@ class ProductController extends Controller
     }
     public function allListTypeTwo($danhmuc,$loaidanhmuc,$thuonghieu, Request $request){
         $product = Product::where(['status'=>1,'cate_slug'=>$danhmuc,'type_slug'=>$loaidanhmuc,'type_two_slug'=>$thuonghieu])
-            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness');
+            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness','tags');
         $data['list'] = $this->applyListFilters($request, $product)->paginate(20)->appends($request->query());
         $data['typetwo'] = TypeProductTwo::where('slug',$thuonghieu)->first(['id','name','cate_id','content','slug']);
         $data['cateno'] = Category::where('slug',$danhmuc)->first(['id','name','avatar','content','slug']);
@@ -311,7 +314,7 @@ class ProductController extends Controller
     {
             $product = Product::where('status',1)
             ->whereJsonContains('tags', $tag)
-            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness');
+            ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug','description','status_variant','variant','hang_muc','origin','thickness','tags');
             $data['list'] = $this->applyListFilters($request, $product)->paginate(12)->appends($request->query());
             
             $tag = Tags::where('slug',$tag)->first();
@@ -472,9 +475,16 @@ class ProductController extends Controller
                 $query->where('status',1)->limit(5)->select('id','name','avatar','slug'); 
             },
         ])->where('slug',$id)->first();
+        if (!$data['product']) {
+            abort(404);
+        }
+        $canonical = UrlRedirectService::productPath($data['product']->cate_slug, $data['product']->type_slug, $data['product']->slug);
+        if (request()->path() !== $canonical) {
+            return redirect()->to(url($canonical), 301);
+        }
        $data['terms'] = PageContent::where(['slug'=>'booking-terms-conditions','language'=>'vi'])->first(['id','title','content']);
         // $data['goiy'] = Product::where('status',1)->limit(8)->get(['id','name','images','discount','price','slug','cate_slug','type_slug']);
-        $data['productlq'] = Product::where('category',$data['product']->category)->limit(8)->get(['id','category','name','status_variant','discount','price','images','slug','cate_slug','type_slug','description']);
+        $data['productlq'] = Product::where('category',$data['product']->category)->limit(8)->get(['id','category','name','status_variant','discount','price','images','slug','cate_slug','type_slug','description','tags']);
         // $data['news'] = Blog::where('status',1)->limit(8)->get();
         return view('product.detail',$data);
     }

@@ -39,15 +39,12 @@
                             <div class="trv-tour-rating">
                                 <span class="trv-tour-review-count">Price</span>
                                 <div class="trv-review-rating">
-                                    <i>
-                                        @if ((int) languageName($item->discount) > 0)
-                                            {{ number_format(languageName($item->discount)) }}VND
-                                        @elseif ((int) languageName($item->price) > 0)
-                                            {{ number_format(languageName($item->price)) }}VND
-                                        @else
-                                            Contact
-                                        @endif
-                                    </i>
+                                    @php $tourPriceLabel = formatTourPrice($item); @endphp
+                                    @if (\Illuminate\Support\Str::endsWith($tourPriceLabel, ' / person'))
+                                        <i class="tour-card-price">{{ \Illuminate\Support\Str::beforeLast($tourPriceLabel, ' / person') }}<span> / person</span></i>
+                                    @else
+                                        <i>{{ $tourPriceLabel }}</i>
+                                    @endif
                                 </div>
                             </div>
                         </div>

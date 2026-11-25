@@ -33,6 +33,7 @@
                     </div>
                   </div>
                 </div>
+                <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
                 <div class="form-group">
                   <vs-input
                     class="w-100"
@@ -72,6 +73,7 @@
 <script>
 import { mapActions } from "vuex";
 import { required } from "vuelidate/lib/validators";
+import SeoFields from "../../_common/seo_fields";
 export default {
   data() {
     return {
@@ -90,10 +92,15 @@ export default {
         path: "",
         avatar: "",
         status: "",
+        seo_title: "",
+        meta_description: "",
       },
       lang:[],
       img: ""
     };
+  },
+  components: {
+    SeoFields,
   },
   methods: {
     ...mapActions(["getInfoCateBlog","saveCategoryBlog","listLanguage", "loadings"]),

@@ -16,8 +16,15 @@ class Solution extends Model
              ])->first();
             
             if ($query) {
+                $oldSlug = $query->slug;
                 $query->name = $request->name;
                 $query->slug = to_slug($request->name);
+                if ($oldSlug && $oldSlug !== $query->slug) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::solutionPath($oldSlug),
+                        \App\Services\UrlRedirectService::solutionPath($query->slug)
+                    );
+                }
                 $query->content = json_encode($request->content);
                 $query->description = json_encode($request->description);
                 $query->status = $request->status;

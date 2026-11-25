@@ -19,8 +19,26 @@ class ServiceCate extends Model
                 'id' => $id
              ])->first();
             if ($query) {
+                $oldSlug = $query->slug;
                 $query->name = json_encode($request->name);
                 $query->slug = to_slug($request->name[0]['content']);
+                if ($oldSlug && $oldSlug !== $query->slug) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::serviceListPath($oldSlug),
+                        \App\Services\UrlRedirectService::serviceListPath($query->slug)
+                    );
+                    \App\models\Services::where('cate_id', $query->id)->orderBy('id')->chunk(50, function ($services) use ($query) {
+                        foreach ($services as $service) {
+                            if (!$service->slug) {
+                                continue;
+                            }
+                            $from = \App\Services\UrlRedirectService::serviceDetailPath($service->cate_slug, $service->slug);
+                            $service->cate_slug = $query->slug;
+                            $service->save();
+                            \App\Services\UrlRedirectService::remember($from, \App\Services\UrlRedirectService::serviceDetailPath($service->cate_slug, $service->slug));
+                        }
+                    });
+                }
                 $query->content = json_encode($request->content);
                 $query->description = $request->description;
                 $query->status = $request->status;

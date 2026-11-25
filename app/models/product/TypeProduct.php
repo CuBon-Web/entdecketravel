@@ -34,11 +34,41 @@ class TypeProduct extends Model
                 if(file_exists( public_path().$file ) ){
                     \File::delete($filename);
                 }
+                $oldSlug = $query->slug;
+                $oldCate = $query->cate_slug;
                 $query->name = json_encode($request->name);
                 $query->slug = to_slug($request->name[0]['content']);
                 $query->content = $request->content;
                 $query->cate_id = $request->cate_id;
                 $query->cate_slug = $cat ? $cat->slug : '';
+                if ($oldSlug && ($oldSlug !== $query->slug || $oldCate !== $query->cate_slug)) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::typePath($oldCate, $oldSlug),
+                        \App\Services\UrlRedirectService::typePath($query->cate_slug, $query->slug)
+                    );
+                    \App\models\product\Product::where('type_cate', $query->id)->orderBy('id')->chunk(50, function ($products) use ($query) {
+                        foreach ($products as $product) {
+                            if (!$product->slug) {
+                                continue;
+                            }
+                            $from = \App\Services\UrlRedirectService::productPath($product->cate_slug, $product->type_slug, $product->slug);
+                            $product->type_slug = $query->slug;
+                            $product->save();
+                            \App\Services\UrlRedirectService::remember($from, \App\Services\UrlRedirectService::productPath($product->cate_slug, $product->type_slug, $product->slug));
+                        }
+                    });
+                    \App\models\product\TypeProductTwo::where('type_id', $query->id)->orderBy('id')->chunk(50, function ($types) use ($query, $oldCate) {
+                        foreach ($types as $type) {
+                            $from = \App\Services\UrlRedirectService::typeTwoPath($type->cate_slug, $type->type_slug, $type->slug);
+                            $type->type_slug = $query->slug;
+                            if ($type->cate_slug === $oldCate) {
+                                $type->cate_slug = $query->cate_slug;
+                            }
+                            $type->save();
+                            \App\Services\UrlRedirectService::remember($from, \App\Services\UrlRedirectService::typeTwoPath($type->cate_slug, $type->type_slug, $type->slug));
+                        }
+                    });
+                }
                 $query->status = $request->status;
                 $query->avatar = $request->avatar;
                 $query->save();

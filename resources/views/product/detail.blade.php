@@ -1,9 +1,9 @@
 @extends('layouts.main.master')
 @section('title')
-{{$product->name}}
+{{ seoTitle($product->seo_title, $product->name) }}
 @endsection
 @section('description')
-{{languageName($product->description)}}
+{{ seoDescription($product->meta_description, $product->description) }}
 @endsection
 @section('image')
 @php
@@ -16,41 +16,101 @@ $ingredient = json_decode($product->ingredient);
 {{url(''.$img[0])}}
 @endsection
 @section('schema')
+@php
+    $tourPrice = tourMoney($product->price);
+    $tourDays = [];
+    if (is_array($ingredient)) {
+        foreach ($ingredient as $day) {
+            $dayTitle = trim(strip_tags((string) languageName(json_encode($day->title ?? ''))));
+            $dayText = trim(preg_replace('/\s+/', ' ', strip_tags((string) languageName(json_encode($day->content ?? '')))));
+            if ($dayTitle === '' && $dayText === '') {
+                continue;
+            }
+            $position = count($tourDays) + 1;
+            $tourDay = [
+                '@type' => 'ListItem',
+                'position' => $position,
+                'name' => $dayTitle !== '' ? $dayTitle : 'Day ' . $position,
+            ];
+            if ($dayText !== '') {
+                $tourDay['description'] = $dayText;
+            }
+            $tourDays[] = $tourDay;
+        }
+    }
+    $tourCate = $product->cate;
+    $tourCateName = ($tourCate && !empty($tourCate->name)) ? languageName($tourCate->name) : 'Tours';
+    $tourCateUrl = ($tourCate && !empty($tourCate->slug))
+        ? route('allListProCate', ['danhmuc' => $tourCate->slug])
+        : route('allProduct');
+    $tourSchema = [
+        '@context' => 'https://schema.org',
+        '@type' => ['TouristTrip', 'Product'],
+        'name' => seoTitle($product->seo_title, $product->name),
+        'description' => seoDescription($product->meta_description, $product->description),
+        'image' => [url('' . $img[0])],
+        'url' => url()->current(),
+        'provider' => [
+            '@type' => 'Organization',
+            '@id' => rtrim(url('/'), '/') . '/#organization',
+            'name' => config('app.name'),
+            'url' => url('/'),
+            'logo' => url('' . $setting->logo),
+        ],
+    ];
+    if ($tourPrice > 0) {
+        $tourSchema['offers'] = [
+            '@type' => 'Offer',
+            'price' => number_format($tourPrice, 2, '.', ''),
+            'priceCurrency' => 'USD',
+            'availability' => 'https://schema.org/InStock',
+            'url' => url()->current(),
+            'priceSpecification' => [
+                '@type' => 'UnitPriceSpecification',
+                'price' => number_format($tourPrice, 2, '.', ''),
+                'priceCurrency' => 'USD',
+                'unitText' => 'person',
+            ],
+        ];
+    }
+    if (count($tourDays)) {
+        $tourSchema['itinerary'] = [
+            '@type' => 'ItemList',
+            'name' => 'Day by day',
+            'numberOfItems' => count($tourDays),
+            'itemListElement' => $tourDays,
+        ];
+    }
+    $tourBreadcrumb = [
+        '@context' => 'https://schema.org',
+        '@type' => 'BreadcrumbList',
+        'itemListElement' => [
+            [
+                '@type' => 'ListItem',
+                'position' => 1,
+                'name' => 'Home',
+                'item' => url('/'),
+            ],
+            [
+                '@type' => 'ListItem',
+                'position' => 2,
+                'name' => $tourCateName,
+                'item' => $tourCateUrl,
+            ],
+            [
+                '@type' => 'ListItem',
+                'position' => 3,
+                'name' => languageName($product->name),
+                'item' => url()->current(),
+            ],
+        ],
+    ];
+@endphp
 <script type="application/ld+json">
-{!! json_encode([
-   '@context' => 'https://schema.org',
-   '@type' => 'TouristTrip',
-   'name' => $product->name,
-   'description' => strip_tags(languageName($product->description)),
-   'image' => [url('' . $img[0])],
-   'url' => url()->current(),
-], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+{!! json_encode($tourSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
 </script>
 <script type="application/ld+json">
-{!! json_encode([
-   '@context' => 'https://schema.org',
-   '@type' => 'BreadcrumbList',
-   'itemListElement' => [
-      [
-         '@type' => 'ListItem',
-         'position' => 1,
-         'name' => 'Home',
-         'item' => url('/'),
-      ],
-      [
-         '@type' => 'ListItem',
-         'position' => 2,
-         'name' => 'Tour',
-         'item' => url('/'),
-      ],
-      [
-         '@type' => 'ListItem',
-         'position' => 3,
-         'name' => $product->name,
-         'item' => url()->current(),
-      ],
-   ],
-], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+{!! json_encode($tourBreadcrumb, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
 </script>
 @endsection
 @section('css')
@@ -747,6 +807,7 @@ document.addEventListener('DOMContentLoaded', function () {
                <div>
                    <ul class="wt-breadcrumb breadcrumb-style-2">
                        <li><a href="{{ route('home') }}">Home</a></li>
+                       <li><a href="{{ $tourCateUrl }}">{{ $tourCateName }}</a></li>
                        <li>{{languageName($product->name)}}</li>
                    </ul>
                </div>
@@ -1109,18 +1170,18 @@ document.addEventListener('DOMContentLoaded', function () {
                        <aside  class="side-bar">
                         <div class="trv-tour-single-r-detail">
                            @php
-                               $adultPrice = (float) languageName($product->price);
-                               $listPrice = (float) languageName($product->discount);
+                               $adultPrice = tourMoney($product->price);
+                               $listPrice = tourMoney($product->discount);
                            @endphp
                            <span class="trv-star-from">Price</span>
                            <span class="trv-star-amount">
                                @if ($adultPrice > 0)
                                    @if ($listPrice > $adultPrice)
-                                       <s>{{ number_format($listPrice) }}đ</s>
+                                       <s>US$ {{ number_format($listPrice) }}</s>
                                    @endif
-                                   <span class="trv-star-now">{{ number_format($adultPrice) }}đ</span> / Person
+                                   <span class="trv-star-now">US$ {{ number_format($adultPrice) }}</span> / person
                                @else
-                                   <span class="trv-star-now">Contact Us</span>
+                                   <span class="trv-star-now">{{ formatTourPrice($product) }}</span>
                                @endif
                            </span>
                        </div>

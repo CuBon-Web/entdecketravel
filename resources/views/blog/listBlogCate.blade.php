@@ -1,9 +1,9 @@
 @extends('layouts.main.master')
 @section('title')
-{{$title_page}} 
+{{ seoTitle($seo_title ?? '', $title_page) }}
 @endsection
 @section('description')
-New update
+{{ seoDescription($meta_description ?? '', 'New update') }}
 @endsection
 @section('image')
 {{url(''.$banner[0]->image)}}
@@ -13,7 +13,7 @@ New update
 {!! json_encode([
    '@context' => 'https://schema.org',
    '@type' => 'CollectionPage',
-   'name' => $title_page,
+   'name' => seoTitle($seo_title ?? '', $title_page),
    'url' => url()->current(),
    'description' => 'new update',
 ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}

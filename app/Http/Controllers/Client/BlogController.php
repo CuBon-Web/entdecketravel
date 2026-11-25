@@ -31,9 +31,11 @@ class BlogController extends Controller
         ->select(['id','title','image','description','created_at','slug'])
         ->paginate(12);
         $data['blognew'] = Blog::where(['status'=>1])->orderBy('id','DESC')->limit(5)->get();
-        $cate = BlogCategory::where('slug', $slug)->first(['name','avatar']);
+        $cate = BlogCategory::where('slug', $slug)->first(['name','avatar','seo_title','meta_description']);
         $data['gallery'] = AlbumAffter::where('status',1)->limit(6)->get();
         $data['title_page'] = languageName($cate->name);
+        $data['seo_title'] = $cate->seo_title ?? '';
+        $data['meta_description'] = $cate->meta_description ?? '';
         $data['bannerPage'] = $cate->avatar ?? '';
         return view('blog.listBlogCate',$data);
     }

@@ -49,6 +49,7 @@
                     </div>
                 </div>
               </div>
+              <seo-fields :title.sync="objData.seo_title" :description.sync="objData.meta_description" />
               <div class="row">
               <div class="form-group col-4">
                 <label>Giá người lớn</label>
@@ -302,6 +303,7 @@ import ImageMulti from "../_common/upload_image_multi";
 import "tinymce/icons/default/icons.min.js";
 import InputTag from "vue-input-tag";
 import InputColorPicker from "vue-native-color-picker";
+import SeoFields from "../_common/seo_fields";
 export default {
   name: "product",
   data() {
@@ -341,6 +343,8 @@ export default {
         lang: "",
         variant:[],
         name: "",
+        seo_title: "",
+        meta_description: "",
         size: [
           {
             title: "",
@@ -440,7 +444,8 @@ export default {
     TinyMce,
     ImageMulti,
     InputTag,
-    "v-input-colorpicker": InputColorPicker
+    "v-input-colorpicker": InputColorPicker,
+    SeoFields
   },
   computed: {
     entryChecks() {

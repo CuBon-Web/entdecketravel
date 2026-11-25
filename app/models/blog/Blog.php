@@ -33,6 +33,7 @@ class Blog extends Model
                 // if(file_exists( public_path().$file ) ){
                 //     \File::delete($filename);
                 // }
+                $oldBlogPath = $query->slug ? \App\Services\UrlRedirectService::blogPath($query->slug) : '';
                 $query->title = json_encode($request->title);
                 $query->content = json_encode($request->content);
                 $query->description = json_encode($request->description);
@@ -43,8 +44,11 @@ class Blog extends Model
                 $query->type_news = $request->type_news;
                 $query->home_status = (int) $request->input('home_status', 0);
                 $query->image = $request->image;
-                $query->slug = to_slug($request->title[0]['content']);
+                fillSlug($query, $request->title[0]['content']);
+                assignSeoFields($query, $request);
                 $query->author = Auth::user()->name;
+                $newBlogPath = $query->slug ? \App\Services\UrlRedirectService::blogPath($query->slug) : '';
+                \App\Services\UrlRedirectService::remember($oldBlogPath, $newBlogPath);
                 $query->save();
             }else{
                 $query = new Blog();
@@ -58,7 +62,8 @@ class Blog extends Model
                 $query->status = $request->status;
                 $query->type_news = $request->type_news;
                 $query->home_status = (int) $request->input('home_status', 0);
-                $query->slug = to_slug($request->title[0]['content']);
+                fillSlug($query, $request->title[0]['content']);
+                assignSeoFields($query, $request);
                 $query->author = Auth::user()->name;
                 $query->save();
             }
@@ -75,7 +80,8 @@ class Blog extends Model
                 $query->cate_product = $request->cate_product;
                 $query->status = $request->status;
                 $query->home_status = (int) $request->input('home_status', 0);
-                $query->slug = to_slug($request->title[0]['content']);
+                fillSlug($query, $request->title[0]['content']);
+                assignSeoFields($query, $request);
                 $query->author = Auth::user()->name;
                 $query->save();
                 SeoPingService::pingSitemap();

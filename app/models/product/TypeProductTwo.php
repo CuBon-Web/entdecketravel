@@ -28,6 +28,9 @@ class TypeProductTwo extends Model
                 'id' => $id
              ])->first();
             if ($query) {
+                $oldSlug = $query->slug;
+                $oldCate = $query->cate_slug;
+                $oldType = $query->type_slug;
                 $query->name = json_encode($request->name);
                 $query->slug = to_slug($request->name[0]['content']);
                 $query->content = $request->content;
@@ -35,6 +38,12 @@ class TypeProductTwo extends Model
                 $query->cate_slug = $cat ? $cat->slug : '';
                 $query->type_id = $request->type_id;
                 $query->type_slug = $type ? $type->slug : '';
+                if ($oldSlug && ($oldSlug !== $query->slug || $oldCate !== $query->cate_slug || $oldType !== $query->type_slug)) {
+                    \App\Services\UrlRedirectService::remember(
+                        \App\Services\UrlRedirectService::typeTwoPath($oldCate, $oldType, $oldSlug),
+                        \App\Services\UrlRedirectService::typeTwoPath($query->cate_slug, $query->type_slug, $query->slug)
+                    );
+                }
                 $query->status = $request->status;
                 $query->avatar = $request->avatar;
                 $query->save();

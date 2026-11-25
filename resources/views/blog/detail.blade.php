@@ -1,9 +1,9 @@
 @extends('layouts.main.master')
 @section('title')
-{{languageName($blog_detail->title)}}
+{{ seoTitle($blog_detail->seo_title, $blog_detail->title) }}
 @endsection
 @section('description')
-{{languageName($blog_detail->description)}}
+{{ seoDescription($blog_detail->meta_description, $blog_detail->description) }}
 @endsection
 @section('image')
 {{url(''.$blog_detail->image)}}
@@ -13,8 +13,8 @@
 {!! json_encode([
    '@context' => 'https://schema.org',
    '@type' => 'BlogPosting',
-   'headline' => languageName($blog_detail->title),
-   'description' => strip_tags(languageName($blog_detail->description)),
+   'headline' => seoTitle($blog_detail->seo_title, $blog_detail->title),
+   'description' => seoDescription($blog_detail->meta_description, $blog_detail->description),
    'image' => [url('' . $blog_detail->image)],
    'datePublished' => optional($blog_detail->created_at)->toIso8601String(),
    'dateModified' => optional($blog_detail->updated_at)->toIso8601String(),
